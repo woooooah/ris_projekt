@@ -26,21 +26,29 @@
     - `git clone https://github.com/woooooah/ris_projekt.git`
     - `cd ris_projekt`
 
-3. ***Pogon zaledja (backenda)***
+3. ***Kreiranje podatkovne baze***
+    - V ris_projekt/backend/src/main/resources izberi datoteko baza_recepti.sql.
+    - Odpri jo v svojem IDE in stisni na run button, ki bo ustvaril podatkovno bazo. 
+
+4. ***Pogon zaledja (backenda)***
     Z naslednjimi ukazi poženi backend.
     - `cd ris_projekt`
     - `cd backend`
     - `./mvnw clean install` - to naredimo le pvič, da zgradimo projekt
     - `./mvnw spring-boot:run` - s tem ukazom poženemo backend server, sedaj teče na: http://localhost:8080
 
-4. ***Pogon pročelja (frontenda)***
+5. ***Napolni bazo*** 
+    - ris_projekt/backend/src/main/resources izberi datoteko data.sql.
+    - napolni bazo
+
+6. ***Pogon pročelja (frontenda)***
     Za delovanje aplikacije ni dovolj, da zaženemo le backend, ko teče backend server, potrebujemo zagnati tudi frontend server, na katerem se lahko potem prikazujejo tudi podatki iz backenda (kompletna aplikacija)
     - `cd ris_projekt`
     - `cd frontend`
     - `npm install` - inštalira node_modules, ki so potrebni za zagon bakcenda
     - `node server.js` - s tem ukazom zaženemo frontend server, ki sedaj teče na: http://localhost:3000
 
-5. ***Dostop do aplikacije***
+7. ***Dostop do aplikacije***
     Ko oba serverja (frontend in backend) tečeta, lahko dostopamo do aplikacije na: http://localhost:3000
 
 
