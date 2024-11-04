@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS recepti;
+CREATE DATABASE recepti;
+USE recepti;
+SHOW TABLES;
