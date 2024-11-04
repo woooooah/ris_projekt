@@ -45,7 +45,38 @@
 
 
 
-## Navodila za razvijalce
+## Navodila za razvijalce – prispevanje k projektu
+
+ 1. ***Orodja in ogrodja***
+    Backend:
+    •	Framework: Spring Boot
+    •	Java:  verzija "1.8.0_401"
+    •	Build orodje: Maven
+
+    Frontend:
+    •	Jeziki: JavaScript, HTML, CSS
+    •	Priporočena knjižnica: ni obvezne knjižnice, ampak priporočamo uporabo jQuery za enostavnejšo manipulacijo DOM, če je to potrebno.
+
+    Splošna orodja:
+    •	IDE: Priporočena sta IntelliJ IDEA ali Eclipse za backend (Spring Boot) in Visual Studio Code za frontend.
+    •	GitHub: Za upravljanje verzij in prispevanje uporabite GitHub, kjer je gostovan repozitorij.
+
+2. ***Okolje***
+    Java in Maven:
+    •	Prepričajte se, da imate nameščen Java 11 (ali novejšo različico). Preverite z ukazom: `java -version`
+    •	Prepričajte se, da imate nameščen Maven za gradnjo projekta: `mvn -version`
+    Spring Boot aplikacija:
+    •	V projektu najdite glavno aplikacijsko datoteko (RisApplication.java) in jo zaženite v vašem IDE ali uporabite ukaz za zagon v terminalu: `mvn spring-boot:run`
+
+    Frontend:
+    •	Sprednji del spletne strani je zgrajen z HTML, CSS in JavaScript in ne zahteva posebne namestitve ali predprocesorja. Vse datoteke so v mapi ris_projekt/frontend.
+
+3. ***Prispevanje***
+    •	Sledite dogovorjenemu stilu pisanja kode (uporabite privzeti stil za Java v Spring Boot in osnovna priporočila za HTML, CSS in JavaScript).
+    •	Pišite jasna in jedrnata commit sporočila v katerih natančno opišete katere spremembe ste naredili.
+    •	GitHub repozitorij vsebuje osnovno README datoteko s povzetkom projekta, navodili za namestitev in uporabo. Dokumentacija naj bo redno posodobljena glede na spremembe v aplikaciji.
+
+
 
 
 
