@@ -1,5 +1,5 @@
 # FlavourfulFinds
-**Ime skupine:** tbd
+**Ime skupine:** tbd <br>
 **Članice skupine:** Sanja Muršič, Tara Sedovšek, Kaja Vidmar
 
 
