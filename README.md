@@ -119,8 +119,16 @@
 
 5. ***Možnost prilaogditve količine sestavin***
     Aplikacija omogoča prilagajanje količine sestavin glede na število oseb. Uporabnik lahko izbere, za koliko oseb želi kuhati, in aplikacija samodejno prilagodi količine sestavin.
+
 6. ***Kopiranje receptov***
     Registrirani uporabniki je omogočeno kopiranje receptov v pdf obliki.
+
+
+
+
+
+
+    
 
 
 
