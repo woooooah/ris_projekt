@@ -104,6 +104,24 @@
     •	Pišite jasna in jedrnata commit sporočila v katerih natančno opišete katere spremembe ste naredili.
     •	GitHub repozitorij vsebuje osnovno README datoteko s povzetkom projekta, navodili za namestitev in uporabo. Dokumentacija naj bo redno posodobljena glede na spremembe v aplikaciji.
 
+## Vizija projekta
+1. ***Filtriranje in enostavno iskanje***
+    Uporabnikom omogoča iskanje receptov po času priprave in stopnji zahtevnosti in enastovno iskanje vse na enem mestu.
+
+2. ***Prikaz hranilne vrednosti***
+    Prikaz hranilne vrednosti vsakega recepta, vključno s kalorijami, beljakovinami, ogljikovimi hidrati, maščobami in drugimi hranili. Ta funkcionalnost bi pomagala uporabnikom, ki sledijo določeni prehrani ali imajo posebne zdravstvene zahteve.
+
+3. ***Ocene in komentarji***
+    Uporabniki lahko ocenjujejo recepte in delijo svoje izkušnje ter nasvete za izboljšave. 
+
+4. ***Shranjevanje receptov***
+    Registrirani uporabniki lahko shranjujejo/všečkajo željene recepte.
+
+5. ***Možnost prilaogditve količine sestavin***
+    Aplikacija omogoča prilagajanje količine sestavin glede na število oseb. Uporabnik lahko izbere, za koliko oseb želi kuhati, in aplikacija samodejno prilagodi količine sestavin.
+
+6. ***Kopiranje receptov***
+    Registrirani uporabniki je omogočeno kopiranje receptov v pdf obliki.
 
 
 
