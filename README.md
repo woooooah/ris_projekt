@@ -25,6 +25,27 @@
 
     2. **Slog**: 
     V backendu uporabljamo PascalCase za poimenovanje razredov - vsaka prva črka besede je z veliko začetnico (npr. `ReceptController.java`).
+1. ***Opis projektne sstrukture***
+    1. **Backend**
+        Backend vsebuje:
+        - config: Konfiguracije in nastavitve aplikacije.
+        - controllers: API kontrolerji, ki obravnavajo različne zahteve (npr. ReceptController).
+        - entities: Modeli podatkovne baze, ki definirajo strukturo podatkov.
+        - repositories: Dostop do podatkovne baze z uporabo JPA.
+        - services: Povezovanje kontrolerjev in podatkovne modele.
+        - RisApplocations.java: Razred, ki omogoča zagon Spring Boot aplikacije.
+
+    2. **Frontend**
+        Frontend vsebuje:
+        - javascript: app.js - pošiljanje zahtev na backend in jasc.js - za funkcionalnost spletne strani.
+        - HTML datoteke: Vse strani uporabniškega vmesnika (npr. `index.html`, `login.html`).
+        - stilska_predloga.css: CSS datoteka za oblikovanje.
+2. ***Standardi kodiranja***
+    1. **Struktura projekta**: 
+    Projekt je razdeljen na backend in frontend, kjer vsak del ločen v poimenovane mape, kot so controllers, entities, services in repositories za backend in javascript, slike in html datoteke za frontend.
+
+    2. **Slog**: 
+    V backendu uporabljamo PascalCase za poimenovanje razredov - vsaka prva črka besede je z veliko začetnico (npr. `ReceptController.java`).
 
 
 ## Navodila za nameščanje in zagon aplikacije
