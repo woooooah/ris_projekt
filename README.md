@@ -4,7 +4,27 @@
 
 
 ## Dokumentacija za razvijalce
+1. ***Opis projektne sstrukture***
+    1. **Backend**
+        Backend vsebuje:
+        - config: Konfiguracije in nastavitve aplikacije.
+        - controllers: API kontrolerji, ki obravnavajo različne zahteve (npr. ReceptController).
+        - entities: Modeli podatkovne baze, ki definirajo strukturo podatkov.
+        - repositories: Dostop do podatkovne baze z uporabo JPA.
+        - services: Povezovanje kontrolerjev in podatkovne modele.
+        - RisApplocations.java: Razred, ki omogoča zagon Spring Boot aplikacije.
 
+    2. **Frontend**
+        Frontend vsebuje:
+        - javascript: app.js - pošiljanje zahtev na backend in jasc.js - za funkcionalnost spletne strani.
+        - HTML datoteke: Vse strani uporabniškega vmesnika (npr. `index.html`, `login.html`).
+        - stilska_predloga.css: CSS datoteka za oblikovanje.
+2. ***Standardi kodiranja***
+    1. **Struktura projekta**: 
+    Projekt je razdeljen na backend in frontend, kjer vsak del ločen v poimenovane mape, kot so controllers, entities, services in repositories za backend in javascript, slike in html datoteke za frontend.
+
+    2. **Slog**: 
+    V backendu uporabljamo PascalCase za poimenovanje razredov - vsaka prva črka besede je z veliko začetnico (npr. `ReceptController.java`).
 
 
 ## Navodila za nameščanje in zagon aplikacije
@@ -84,6 +104,23 @@
     •	Pišite jasna in jedrnata commit sporočila v katerih natančno opišete katere spremembe ste naredili.
     •	GitHub repozitorij vsebuje osnovno README datoteko s povzetkom projekta, navodili za namestitev in uporabo. Dokumentacija naj bo redno posodobljena glede na spremembe v aplikaciji.
 
+## Vizija projekta
+1. ***Filtriranje in enostavno iskanje***
+    Uporabnikom omogoča iskanje receptov po času priprave in stopnji zahtevnosti in enastovno iskanje vse na enem mestu.
+
+2. ***Prikaz hranilne vrednosti***
+    Prikaz hranilne vrednosti vsakega recepta, vključno s kalorijami, beljakovinami, ogljikovimi hidrati, maščobami in drugimi hranili. Ta funkcionalnost bi pomagala uporabnikom, ki sledijo določeni prehrani ali imajo posebne zdravstvene zahteve.
+
+3. ***Ocene in komentarji***
+    Uporabniki lahko ocenjujejo recepte in delijo svoje izkušnje ter nasvete za izboljšave. 
+
+4. ***Shranjevanje receptov***
+    Registrirani uporabniki lahko shranjujejo/všečkajo željene recepte.
+
+5. ***Možnost prilaogditve količine sestavin***
+    Aplikacija omogoča prilagajanje količine sestavin glede na število oseb. Uporabnik lahko izbere, za koliko oseb želi kuhati, in aplikacija samodejno prilagodi količine sestavin.
+6. ***Kopiranje receptov***
+    Registrirani uporabniki je omogočeno kopiranje receptov v pdf obliki.
 
 
 
