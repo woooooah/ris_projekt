@@ -154,19 +154,17 @@
 
 
 ## Besednjak
-    **FlavourfulFinds** - Portal z recepti <br>
-    **Recept** - navodilo s podatki o vrsti, količini živil in postopku za pripravo določene jedi, pijače <br>
-    **Naslov Recepta - Poimenovanje, ki ga damo receptu <br>
-    **Čas priprave** - Čas, ki ga potrebujemo za pripravo nekega recepta <br>
-    **Skupen čas priprave** - Skupen čas, potreben za pripravo nekega recepta (vključno s časom za peko/kuhanje/hlajenje ...) <br>
-    **Sestavina** - Snov, ki skupaj z drugimi snovmi sestavlja, tvori kako snov. <br>
-    **Količina** - Kar opredeljuje kaj glede na število merskih enot ali enot sploh <br>
-    **Enota** - Dogovorjena količina za merjenje količin iste vrste <br>
-    **Korak **- Eno navodilo za specifičen del recepta <br>
-    **Navodilo** - Kar pojasnjuje, določa, kako se kaj dela, s čim ravna <br>
-    **Minuta** - Enota za merjenje časa, 1 minuta = 60 sekundam <br>
-    **Iskalnik** - Polje na spletni strani za iskanje receptov <br>
-
+- **FlavourfulFinds** - *Portal z recepti*
+- **Recept** - *navodilo s podatki o vrsti, količini živil in postopku za pripravo določene jedi, pijače*
+- **Naslov recepta** - *Poimenovanje, ki ga damo receptu*
+- **Čas priprave** - *Čas, ki ga potrebujemo za pripravo nekega recepta*
+- **Skupen čas priprave** - *Skupen čas, potreben za pripravo nekega recepta (vključno s časom za peko/kuhanje/hlajenje ...)*
+- **Sestavina** - *Snov, ki skupaj z drugimi snovmi sestavlja, tvori kako snov*
+- **Količina** - *Kar opredeljuje kaj glede na število merskih enot ali enot sploh*
+- **Enota** - *Dogovorjena količina za merjenje količin iste vrste*
+- **Korak** - *Eno navodilo za specifičen del recepta*
+- **Navodilo** - *Kar pojasnjuje, določa, kako se kaj dela, s čim ravna*
+- **Minuta** - *Enota za merjenje časa, 1 minuta = 60 sekundam*
 
 
 
