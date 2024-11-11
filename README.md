@@ -166,7 +166,8 @@
 - **Navodilo** - *Kar pojasnjuje, določa, kako se kaj dela, s čim ravna*
 - **Minuta** - *Enota za merjenje časa, 1 minuta = 60 sekundam*
 
-
+## DPU 
+![alt text](dpu_nov.png)
 
 
     

@@ -12,8 +12,8 @@
     - [x] brisanje receptov 
 
 ## Sanja
-- [] popravi dpu (extend za brisanje urejanje ..., odstranitev prijave in registracije)
-- [] dodaj dpu v readme (kot sliko kr)
+- [X] popravi dpu (extend za brisanje urejanje ..., odstranitev prijave in registracije)
+- [X] dodaj dpu v readme (kot sliko kr) <!-- Ne gre dodati kot sliko, lahko samo povezavo/pot do nje -->
 
 ## Tara
 - [] popravi vizijo
