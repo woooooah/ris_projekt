@@ -1,8 +1,8 @@
 # TO-DO
-- [] ogled receptov
+- [x] ogled receptov
 - [] komentiranje
 - [] brisanje komentarjev
-- [] shranjevanje receptov
+- [x] shranjevanje receptov
 
 ## Kaja
 - [x] dodaj besednjak v README.md
