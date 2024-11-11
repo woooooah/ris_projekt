@@ -1,10 +1,17 @@
+<!-- (maybe useful, jaz se nisem spomnila, sem morala guglat) :)
+    # so naslovi (#=h1, ##=h2 ...) 
+    **nekaj** je boldano
+    *nekaj* je italic
+    ***nekaj*** je bold&italic
+-->
+
 # FlavourfulFinds
 **Ime skupine:** tbd <br>
 **Članice skupine:** Sanja Muršič, Tara Sedovšek, Kaja Vidmar
 
 
 ## Dokumentacija za razvijalce
-1. ***Opis projektne sstrukture***
+1. ***Opis projektne strukture***
     1. **Backend**
         Backend vsebuje:
         - config: Konfiguracije in nastavitve aplikacije.
@@ -25,7 +32,7 @@
 
     2. **Slog**: 
     V backendu uporabljamo PascalCase za poimenovanje razredov - vsaka prva črka besede je z veliko začetnico (npr. `ReceptController.java`).
-1. ***Opis projektne sstrukture***
+<!-- 1. ***Opis projektne strukture***
     1. **Backend**
         Backend vsebuje:
         - config: Konfiguracije in nastavitve aplikacije.
@@ -45,7 +52,7 @@
     Projekt je razdeljen na backend in frontend, kjer vsak del ločen v poimenovane mape, kot so controllers, entities, services in repositories za backend in javascript, slike in html datoteke za frontend.
 
     2. **Slog**: 
-    V backendu uporabljamo PascalCase za poimenovanje razredov - vsaka prva črka besede je z veliko začetnico (npr. `ReceptController.java`).
+    V backendu uporabljamo PascalCase za poimenovanje razredov - vsaka prva črka besede je z veliko začetnico (npr. `ReceptController.java`). -->
 
 
 ## Navodila za nameščanje in zagon aplikacije
@@ -125,6 +132,7 @@
     •	Pišite jasna in jedrnata commit sporočila v katerih natančno opišete katere spremembe ste naredili.
     •	GitHub repozitorij vsebuje osnovno README datoteko s povzetkom projekta, navodili za namestitev in uporabo. Dokumentacija naj bo redno posodobljena glede na spremembe v aplikaciji.
 
+
 ## Vizija projekta
 1. ***Filtriranje in enostavno iskanje***
     Uporabnikom omogoča iskanje receptov po času priprave in stopnji zahtevnosti in enastovno iskanje vse na enem mestu.
@@ -145,6 +153,20 @@
     Registrirani uporabniki je omogočeno kopiranje receptov v pdf obliki.
 
 
+## Besednjak
+    **FlavourfulFinds** - Portal z recepti <br>
+    **Recept** - navodilo s podatki o vrsti, količini živil in postopku za pripravo določene jedi, pijače <br>
+    **Naslov Recepta - Poimenovanje, ki ga damo receptu <br>
+    **Čas priprave** - Čas, ki ga potrebujemo za pripravo nekega recepta <br>
+    **Skupen čas priprave** - Skupen čas, potreben za pripravo nekega recepta (vključno s časom za peko/kuhanje/hlajenje ...) <br>
+    **Sestavina** - Snov, ki skupaj z drugimi snovmi sestavlja, tvori kako snov. <br>
+    **Količina** - Kar opredeljuje kaj glede na število merskih enot ali enot sploh <br>
+    **Enota** - Dogovorjena količina za merjenje količin iste vrste <br>
+    **Korak **- Eno navodilo za specifičen del recepta <br>
+    **Navodilo** - Kar pojasnjuje, določa, kako se kaj dela, s čim ravna <br>
+    **Minuta** - Enota za merjenje časa, 1 minuta = 60 sekundam <br>
+    **Iskalnik** - Polje na spletni strani za iskanje receptov <br>
+
 
 
 
@@ -155,9 +177,3 @@
 
 
 
-<!-- (maybe useful, jaz se nisem spomnila, sem morala guglat) :)
-    # so naslovi (#=h1, ##=h2 ...) 
-    **nekaj** je boldano
-    *nekaj* je italic
-    ***nekaj*** je bold&italic
--->
