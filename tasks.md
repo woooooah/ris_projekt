@@ -1,7 +1,7 @@
 # TO-DO
 - [x] ogled receptov
-- [] komentiranje
-- [] brisanje komentarjev
+- [X] komentiranje
+- [X] brisanje komentarjev
 - [x] shranjevanje receptov
 
 ## Kaja
@@ -16,7 +16,7 @@
 - [X] dodaj dpu v readme (kot sliko kr) <!-- Ne gre dodati kot sliko, lahko samo povezavo/pot do nje -->
 
 ## Tara
-- [] popravi vizijo
+- [X] popravi vizijo
 
 
 
