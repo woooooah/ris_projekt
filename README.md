@@ -134,23 +134,7 @@
 
 
 ## Vizija projekta
-1. ***Filtriranje in enostavno iskanje***
-    Uporabnikom omogoča iskanje receptov po času priprave in stopnji zahtevnosti in enastovno iskanje vse na enem mestu.
-
-2. ***Prikaz hranilne vrednosti***
-    Prikaz hranilne vrednosti vsakega recepta, vključno s kalorijami, beljakovinami, ogljikovimi hidrati, maščobami in drugimi hranili. Ta funkcionalnost bi pomagala uporabnikom, ki sledijo določeni prehrani ali imajo posebne zdravstvene zahteve.
-
-3. ***Ocene in komentarji***
-    Uporabniki lahko ocenjujejo recepte in delijo svoje izkušnje ter nasvete za izboljšave. 
-
-4. ***Shranjevanje receptov***
-    Registrirani uporabniki lahko shranjujejo/všečkajo željene recepte.
-
-5. ***Možnost prilaogditve količine sestavin***
-    Aplikacija omogoča prilagajanje količine sestavin glede na število oseb. Uporabnik lahko izbere, za koliko oseb želi kuhati, in aplikacija samodejno prilagodi količine sestavin.
-
-6. ***Kopiranje receptov***
-    Registrirani uporabniki je omogočeno kopiranje receptov v pdf obliki.
+Naša vizija je ustvariti intuitivno platformo za ljubitelje kuhanja, ki omogoča enostavno filtriranje receptov po času priprave in stopnji zahtevnosti ter hitro iskanje na enem mestu. Poudarek je na prikazu hranilne vrednosti vsakega recepta, vključno s kalorijami, beljakovinami, ogljikovimi hidrati, maščobami in drugimi hranili, kar bo v pomoč uporabnikom z različnimi prehranskimi cilji ali zdravstvenimi potrebami. Aplikacija spodbuja sodelovanje in izmenjavo izkušenj, saj uporabnikom omogoča ocenjevanje receptov, dodajanje komentarjev in deljenje nasvetov za izboljšave. Registriranim uporabnikom ponujamo funkcionalnosti, kot so shranjevanje ali všečkanje receptov ter možnost kopiranja receptov v PDF obliki. Poleg tega aplikacija omogoča prilagoditev količine sestavin glede na število oseb, kar poenostavi načrtovanje obrokov in zagotavlja natančne izračune za vsakogar.
 
 
 ## Besednjak
