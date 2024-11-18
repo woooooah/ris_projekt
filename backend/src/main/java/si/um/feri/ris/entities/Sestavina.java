@@ -26,44 +26,44 @@ public class Sestavina {
     @JsonBackReference // to daš v child-a, ker drugače imaš infinite loop in MILIJON outputov, v parenta pa daš @JsonManagedReference !!!!
     private Recept recept;
 
-    //GETTERJI
-    public Long getId_sestavina() {
-        return id_sestavina;
-    }
+    // //GETTERJI
+    // public Long getId_sestavina() {
+    //     return id_sestavina;
+    // }
 
-    public String getNaziv() {
-        return naziv;
-    }
+    // public String getNaziv() {
+    //     return naziv;
+    // }
 
-    public double getKolicina() {
-        return kolicina;
-    }
+    // public double getKolicina() {
+    //     return kolicina;
+    // }
 
-    public String getEnota() {
-        return enota;
-    }
+    // public String getEnota() {
+    //     return enota;
+    // }
 
-    public Recept getRecept() {
-        return recept;
-    }
+    // public Recept getRecept() {
+    //     return recept;
+    // }
 
-    //SETTERJI
+    // //SETTERJI
 
-    public void setId_sestavina(Long id_sestavina) {
-        this.id_sestavina = id_sestavina;
-    }
+    // public void setId_sestavina(Long id_sestavina) {
+    //     this.id_sestavina = id_sestavina;
+    // }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
-    }
+    // public void setNaziv(String naziv) {
+    //     this.naziv = naziv;
+    // }
 
-    public void setKolicina(double kolicina) {
-        this.kolicina = kolicina;
-    }
+    // public void setKolicina(double kolicina) {
+    //     this.kolicina = kolicina;
+    // }
 
-    public void setEnota(String enota) {
-        this.enota = enota;
-    }
+    // public void setEnota(String enota) {
+    //     this.enota = enota;
+    // }
 
     public void setRecept(Recept recept) {
         this.recept = recept;

@@ -153,6 +153,8 @@ Naša vizija je ustvariti intuitivno platformo za ljubitelje kuhanja, ki omogoč
 ## DPU 
 ![alt text](dpu_nov.png)
 
+## Razredni diagram
+![alt text] (documents/razredni_diagram.png)
 
     
 

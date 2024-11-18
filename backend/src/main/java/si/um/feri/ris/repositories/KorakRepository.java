@@ -1,9 +1,9 @@
-package si.um.feri.ris.repositories;
+// package si.um.feri.ris.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+// import org.springframework.data.jpa.repository.JpaRepository;
 
-import si.um.feri.ris.entities.Korak;
+// import si.um.feri.ris.entities.Korak;
 
-public interface KorakRepository extends JpaRepository<Korak, Long>{
+// public interface KorakRepository extends JpaRepository<Korak, Long>{
     
-}
+// }
