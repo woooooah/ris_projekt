@@ -3,6 +3,8 @@
 - [X] komentiranje
 - [X] brisanje komentarjev
 - [x] shranjevanje receptov
+- [ ] pri ludekih mora biti nepobarvana puščica
+- [ ] pri extend in include ne sme bit puščica puščica ampak samo dve črtici
 
 ## Kaja
 - [x] dodaj besednjak v README.md
