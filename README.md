@@ -135,86 +135,86 @@ Naša vizija je ustvariti intuitivno platformo za ljubitelje kuhanja, ki omogoč
 ## Razredni diagram
 ![alt text](documents/razredni_diagram.png)
 
-1. ***RisApplication.java***
-    **Namen:**
+1. ***RisApplication.java***<br>
+    **Namen:**<br>
     Razred `RisApplication.java` je začetna točka aplikacije, kjer se izvede inicializacija celotne aplikacije. Namen razreda je omogočiti zagon aplikacije z uporabo metode main, ki sproži Spring Boot framework in ustvari kontekst aplikacije.
 
-    **Metoda:**
+    **Metoda:**<br>
     Metoda `main(String[] args): void`, ki se izvede ob zagonu aplikacije.
 
-2. ***Komentar***
-    **Namen:**
+2. ***Komentar***<br>
+    **Namen:**<br>
     Namen: Predstavlja povratne informacije uporabnikov za posamezne recepte. Komentarji vključujejo oceno in opis, ki pomagajo drugim uporabnikom razumeti kakovost in uporabnost recepta.
 
-    **Metoda:**
+    **Metoda:**<br>
     Metoda `izbrisiKomentar()` omogoča odstranitev komentarja iz sistema, npr. če ga želi uporabnik ali administrator izbrisati.
 
-3. ***Uporabnik***
-    **Namen:**
+3. ***Uporabnik***<br>
+    **Namen:**<br>
     Predstavlja uporabnike aplikacije, ki lahko ustvarjajo, urejajo in ocenjujejo recepte. Razred omogoča identifikacijo uporabnikov s pomočjo unikatnega ID-ja, imena, e-pošte in gesla. Atribut isAdmin določa, ali ima uporabnik administratorske pravice, kar omogoča različno raven dostopa.
 
-    **Metode:**
+    **Metode:**<br>
     Metoda `ustvariRecept()` omogoča uporabniku ustvari nov recept, `oceniRecept()` omogoča dodajanje oceno obstoječemu receptu, `izbrisiRecept()` odstrani recept iz sistema in `spremeniRecept()` posodobi podrobnosti o receptu.
 
-4. ***Recept***
-    **Namen:**
+4. ***Recept***<br>
+    **Namen:**<br>
     Recept je osrednji razred sistema, ki vsebuje vse ključne informacije, potrebne za pripravo jedi, kot so naslov, čas priprave, sestavine in koraki priprave. Vsak recept je povezan z natančno opisanimi sestavinami in koraki, kar omogoča jasen in podroben opis postopka priprave.
 
-    **Metode:**
+    **Metode:**<br>
      Getterji(`getId_recept()`) in setterji(`setNaslov(naslov: String)`) omogočajo enostavno branje in urejanje atributov recepta, medtem ko povezave s sestavinami in koraki olajšajo dostop do povezanih podatkov.
 
-5. ***Sestavine***
-    **Namen:**
+5. ***Sestavine***<br>
+    **Namen:**<br>
     Predstavlja posamezne sestavine, potrebne za pripravo recepta. Povezana je s konkretnim receptom, kar omogoča modularnost in ponovno uporabo sestavin v več receptih.
 
-    **Metoda:**
+    **Metoda:**<br>
     Metoda `setRecept(recept: Recept)` omogoča povezovanje sestavine z določenim receptom.
 
-6. ***Korak***
-    **Namen:**
+6. ***Korak***<br>
+    **Namen:**<br>
     Predstavlja en korak v postopku priprave recepta. Vsak korak ima zaporedno številko in opis, ki jasno opiše, kaj mora uporabnik narediti v tem delu postopka. Povezan je s specifičnim receptom, kar omogoča ločevanje korakov za različne recepte.
 
-    **Metoda:**
+    **Metoda:**<br>
     Metoda `method(type)` omogoča uporabo razširjenih funkcij za delo s koraki.
 
-7. ***ReceptService***
-    **Namen:**
+7. ***ReceptService***<br>
+    **Namen:**<br>
     Namen upravljanje logike poslovnih procesov za delo z recepti. Glavna naloga je izvajanje operacij, kot so pridobivanje vseh receptov, ustvarjanje, posodabljanje in brisanje receptov.
 
-    **Metode:**
+    **Metode:**<br>
     Metoda `getAllRecipes()` pridobi seznam vseh receptov, `createRecipe(Recept recept)` doda nov recept v sistem, `updateRecipe(Long id, Recept updatedRecipe)` posodobi podrobnosti obstoječega recepta, `deleteRecipe(Long id)` izbriše recept glede na ID, `isciRecepte(String naslov)` poišče recepte na podlagi naslova.
 
-8. ***ReceptRepository***
-    **Namen:**
+8. ***ReceptRepository***<br>
+    **Namen:**<br>
     Z uporabo JPA omogoča izvajanje CRUD operacij nad tabelo receptov in razširja funkcionalnosti JPA z dodatnimi metodami za iskanje receptov.
 
-    **Metode:**
+    **Metode:**<br>
     Metoda `findAllDistinct()` vrne seznam vseh unikatnih receptov in metoda `findByNaslovContainingIgnoreCase(String naslov)` poišče recepte, katerih naslov vsebuje določeno besedilo.
 
-9. ***ReceptContoller**
-    **Namen:** 
+9. ***ReceptContoller**<br>
+    **Namen:** <br>
     Zagotavlja API-endpointe za interakcijo s podatki o receptih. Deluje kot most med odjemalci (frontend) in logiko poslovanja (ReceptService). Zagotavlja dostop do funkcionalnosti, kot  so iskanje receptov, ustvarjanje, posodabljanje in brisanje receptov.
 
-    **Metode:**
+    **Metode:**<br>
     Metoda `getAllRecipes()` API za pridobivanje vseh receptov, `createRecipe(Recept recept)` API za ustvarjanje novega recepta, `updateRecipe(Long id, Recept updatedRecipe)` API za posodobitev obstoječega recepta, `deleteRecipe(Long id)` API za brisanje recepta in `isciRecepte(String naslov)` API za iskanje receptov po naslovu.
 
-10. ***RisController***
-    **Namen:**
+10. ***RisController***<br>
+    **Namen:**<br>
     RisController je splošen kontroler, ki skrbi za osnovne informacije o aplikaciji.
 
-    **Metoda:**
+    **Metoda:**<br>
     Metoda `getInfo(): String` vrne osnovne informacije o aplikaciji, kot so verzija, stanje ali preprosto sporočilo, ki kaže, da aplikacija deluje.
 
-11. ***ClassicEndpoint***
-    **Namen:**
+11. ***ClassicEndpoint***<br>
+    **Namen:**<br>
     ClassicEndpoint je preprost kontroler, ki omogoča dostop do klasičnih informacij ali funkcionalnosti aplikacije.
 
-    **Metoda:**
+    **Metoda:**<br>
     Metoda `getClassicInfo(): String` vrne določene informacije o aplikaciji.
 
-12. ***WebConfig***
-    **Namen:**
+12. ***WebConfig***<br>
+    **Namen:**<br>
     WebConfig je konfiguracijski razred za spletno aplikacijo. Njegova glavna naloga je konfiguriranje pravil za komunikacijo med strežnikom in odjemalci.
 
-    **Metoda:**
+    **Metoda:**<br>
     Metoda `corsConfigurer(): WebMvcConfigurer` nastavi pravila CORS, da omogoči izmenjavo podatkov med različnimi domenami. Ta metoda omogoča povezovanje aplikacijskih API-jev z različnimi frontend odjemalci, ki tečejo na drugih domenah.
