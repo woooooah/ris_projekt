@@ -24,6 +24,9 @@ public class Uporabnik {
     @Column(nullable = false)
     private String geslo; // to bo shranjevalo šifrirano geslo
 
+    @Column(nullable = false)
+    private boolean admin;
+    
     // public Long getId_uporabnik() {
     //     return id_uporabnik;
     // }
