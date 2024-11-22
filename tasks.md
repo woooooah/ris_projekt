@@ -43,8 +43,8 @@
 - [] registracija
     - [] backend
     - [] frontend
-        - [] dodaj html povezavo v menu bar (za registracija.html)
-        - [] dodaj html povezavo v menu bar (za login.html)
+        - [X] dodaj html povezavo v menu bar (za registracija.html)
+        - [X] dodaj html povezavo v menu bar (za login.html)
 - [] log in 
     - [] backend 
     - [] frontend
