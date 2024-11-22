@@ -383,3 +383,49 @@ function deleteRecipe(recipeId) {
 //         .catch(error => console.error('Error creating recipe:', error));
 //     });
 // });
+
+
+document.getElementById('register-form').addEventListener('submit', function (event) {
+    event.preventDefault(); 
+
+    const ime = document.getElementById('name').value;
+    const priimek = document.getElementById('surname').value;
+    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value;
+    const geslo = document.getElementById('password').value;
+
+    const adminEmails = ['kaja.vidmar@gmail.com', 'sanja.mursic@gmail.com', 'tara.sedovsek@gmail.com']; 
+    const admin = adminEmails.includes(email.toLowerCase());
+
+
+    const uporabnik = {
+        ime: ime,
+        priimek: priimek,
+        email: email,
+        username: username,
+        geslo: geslo,
+        admin: admin
+    };
+
+    // Pošlji zahtevo na backend
+    fetch('http://localhost:8080/api/uporabniki/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(uporabnik)
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            return response.text().then(text => { throw new Error(text); });
+        }
+    })
+    .then(data => {
+        document.getElementById('result').innerHTML = `<p style="color: green;">Uporabnik ${data.username} uspešno registriran!</p>`;
+    })
+    .catch(error => {
+        document.getElementById('result').innerHTML = `<p style="color: red;">Napaka: ${error.message}</p>`;
+    });
+});
