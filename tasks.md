@@ -24,6 +24,7 @@
     - [] backend
     - [] frontend
         - [] povezava pri seznamu vseh 
+        
 <!-- ???
  - [] dodajanje receptov med priljubljene
     - [] backend
