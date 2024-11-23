@@ -16,13 +16,20 @@
     - [x] urejanje receptov
     - [x] brisanje receptov 
 - [x] prilagodi tabelo Uporabnik (dodaj bool administrator )
-- [] usposobit urejanje receptov
+- [] urejanje receptov
     - [] frontend
-- [] dodajanje receptov med priljubljene
+        - [] izpolnjevanje vnosnih polj z obstoječimi informacijami
+        - [] posodobitev in prikaz posodobljenih informacij
+- [] prikaz posameznega recepta
+    - [] backend
+    - [] frontend
+        - [] povezava pri seznamu vseh 
+<!-- ???
+ - [] dodajanje receptov med priljubljene
     - [] backend
         - [] prilagodi bazo
     - [] frontend
-        - [] html site s priljubljenimi recepti
+        - [] html site s priljubljenimi recepti -->
 
 
 ## Sanja
