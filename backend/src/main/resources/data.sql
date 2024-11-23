@@ -39,6 +39,12 @@ INSERT INTO korak (zaporedno_st, opis, tk_recept) VALUES
     (5, 'Beat cream until stiff peaks form, being careful not to over-whip', 3),
     (6, 'Whip whites: Add sugar. Beat whites until firm peaks form', 3);
 
+INSERT INTO uporabnik (ime, priimek, email, username, geslo, admin) VALUES
+    ('Kaja', 'Vidmar', 'kaja.vidmar@gmail.com', 'KajaV', 'geslo123', TRUE),
+    ('Sanja', 'Muršič', 'sanja.mursic@gmail.com', 'SanjaM', 'geslo123', TRUE),
+    ('Tara', 'Sedovšek', 'tara.sedovsek@gmail.com', 'TaraS', 'geslo123', TRUE),
+    ('Jace', 'Novak', 'jace.novak@gmail.com', 'JaceN', 'geslo123', FALSE),
+    ('Victor', 'Frankenstein', 'victor.frankenstein@picture.com', 'vic.fran', 'ustvarilsemPOŠAST', FALSE);
 DROP TABLE sestavina;
 DROP TABLE korak;
 DROP TABLE recept;

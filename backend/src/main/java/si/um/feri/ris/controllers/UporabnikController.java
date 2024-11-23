@@ -1,4 +1,4 @@
-/*package si.um.feri.ris.controllers;
+package si.um.feri.ris.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,4 +23,4 @@ public class UporabnikController {
         Uporabnik savedUporabnik = uporabnikService.saveUporabnik(uporabnik);
         return ResponseEntity.ok(savedUporabnik);
     }
-}*/
+}

@@ -1,4 +1,4 @@
-/*package si.um.feri.ris.services;
+package si.um.feri.ris.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
