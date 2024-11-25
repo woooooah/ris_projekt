@@ -16,25 +16,23 @@
     - [x] urejanje receptov
     - [x] brisanje receptov 
 - [x] prilagodi tabelo Uporabnik (dodaj bool administrator )
-- [] urejanje receptov
-    - [] bakcend
+- [x] urejanje receptov
+    - [x] bakcend
         - [x] get recept by id 
-    - [] frontend
-        - [] izpolnjevanje vnosnih polj z obstoječimi informacijami
-        - [] posodobitev in prikaz posodobljenih informacij
-- [] prikaz posameznega recepta
+    - [x] frontend
+        - [x] izpolnjevanje vnosnih polj z obstoječimi informacijami
+        - [x] posodobitev in prikaz posodobljenih informacij
+<!--- [] prikaz posameznega recepta
     - [] backend
     - [] frontend
-        - [] povezava pri seznamu vseh 
+        - [] povezava pri seznamu vseh -->
 - [x] popravi backend dodajanje recepta
 - [x] dodaj delete gumb na prikaz vseh elementov
-        
-<!-- ???
- - [] dodajanje receptov med priljubljene
+- [] dodajanje receptov med priljubljene
     - [] backend
         - [] prilagodi bazo
     - [] frontend
-        - [] html site s priljubljenimi recepti -->
+        - [] html site s priljubljenimi recepti 
 
 
 ## Sanja
