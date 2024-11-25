@@ -1,7 +1,7 @@
 package si.um.feri.ris.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import si.um.feri.ris.entities.Uporabnik;
 import si.um.feri.ris.repositories.UporabnikRepository;
@@ -12,18 +12,50 @@ public class UporabnikService {
     @Autowired
     private UporabnikRepository uporabnikRepository;
 
-    @Autowired
+    public Iterable<Uporabnik> getAllUsers() {
+        return uporabnikRepository.findAll();
+    }
+
+    /*@Autowired
     private PasswordEncoder passwordEncoder;
+    */
 
     public Uporabnik saveUporabnik(Uporabnik uporabnik) {
         // Encrypt password
-        uporabnik.setGeslo(passwordEncoder.encode(uporabnik.getGeslo()));
+        //uporabnik.setGeslo(passwordEncoder.encode(uporabnik.getGeslo()));
         return uporabnikRepository.save(uporabnik);
     }
 
     public boolean existsByUsername(String username) {
         return uporabnikRepository.findByUsername(username).isPresent();
     }
+
+    public Uporabnik getUserById(Long id) {
+        return uporabnikRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("User not found with ID: " + id));
+    }
+    
+
+    // Update an existing user
+    public Uporabnik updateUser(Long id, Uporabnik uporabnik) {
+        Uporabnik user = uporabnikRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("User not found with ID: " + id));
+
+        if (uporabnik.getUsername() != null) user.setUsername(uporabnik.getUsername());
+        if (uporabnik.getEmail() != null) user.setEmail(uporabnik.getEmail());
+        if (uporabnik.getGeslo() != null) user.setGeslo(uporabnik.getGeslo());
+
+        return uporabnikRepository.save(user);
+    }
+    // Delete a user
+    public void deleteUser(Long id) {
+        if (!uporabnikRepository.existsById(id)) {
+            throw new RuntimeException("User not found with ID: " + id);
+        }
+        uporabnikRepository.deleteById(id);
+    }
+    
+
 }
 
 /*
