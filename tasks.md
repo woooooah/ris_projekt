@@ -24,6 +24,8 @@
     - [] backend
     - [] frontend
         - [] povezava pri seznamu vseh 
+- [x] popravi backend dodajanje recepta
+- [x] dodaj delete gumb na prikaz vseh elementov
         
 <!-- ???
  - [] dodajanje receptov med priljubljene

@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function(){
                 <img src="${imageUrl}" alt="${recept.naslov}">
                 <h5>${recept.naslov}</h5>
                 ${Math.floor(recept.skupni_cas / 60)}h ${recept.skupni_cas % 60}min
+                <br>
+                <button class="btn btn-outline-danger" onclick="deleteRecipe(${recept.id_recept})">Delete</button>
             
             `;
         rowDiv.appendChild(receptItem);
