@@ -74,4 +74,5 @@ public class Uporabnik {
      public void setGeslo(String geslo) {
          this.geslo = geslo;
      }
+
 }

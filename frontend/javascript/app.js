@@ -384,7 +384,46 @@ function deleteRecipe(recipeId) {
 //     });
 // });
 
+document.getElementById('registracija').addEventListener('gumbek_submit', function (event) {
+    event.preventDefault();
 
+    const ime = document.getElementById('name').value;
+    const priimek = document.getElementById('surname').value;
+    const email = document.getElementById('email').value;
+    const username = document.getElementById('username').value;
+    const geslo = document.getElementById('password').value;
+
+    const uporabnik = {
+        ime: ime,
+        priimek: priimek,
+        email: email,
+        username: username,
+        geslo: geslo,
+        //admin: false // Predpostavljam, da je admin status nastavljen na backendu ali po drugih kriterijih
+    };
+
+    fetch('http://localhost:8080/api/uporabniki/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(uporabnik)
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                return response.text().then(text => { throw new Error(text); });
+            }
+        })
+        .then(data => {
+            document.getElementById('result').innerHTML = `<p style="color: green;">Uporabnik ${data.username} uspešno registriran!</p>`;
+        })
+        .catch(error => {
+            document.getElementById('result').innerHTML = `<p style="color: red;">Napaka: ${error.message}</p>`;
+        });
+});
+/*
 document.getElementById('register-form').addEventListener('submit', function (event) {
     event.preventDefault(); 
 
@@ -407,6 +446,10 @@ document.getElementById('register-form').addEventListener('submit', function (ev
         admin: admin
     };
 
+    fetch('http://localhost:8080/api/uporabniki')
+    .then(response => response.json())
+    .then(data => console.log(data));
+
     // Pošlji zahtevo na backend
     fetch('http://localhost:8080/api/uporabniki/register', {
         method: 'POST',
@@ -428,4 +471,28 @@ document.getElementById('register-form').addEventListener('submit', function (ev
     .catch(error => {
         document.getElementById('result').innerHTML = `<p style="color: red;">Napaka: ${error.message}</p>`;
     });
-});
+});*/
+
+
+//PRIKAZ VSEH UPORABNIKOV DELA
+/*
+fetch('http://localhost:8080/api/uporabniki')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Napaka pri pridobivanju uporabnikov');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Shranjeni uporabniki:', data);
+        const userList = document.getElementById('user-list');
+        userList.innerHTML = '';
+        data.forEach(user => {
+            userList.innerHTML += `
+                <p>Uporabnik: ${user.ime} ${user.priimek}, Email: ${user.email}, Uporabniško ime: ${user.username}</p>
+            `;
+        });
+    })
+    .catch(error => console.error('Napaka:', error));
+    */
+
