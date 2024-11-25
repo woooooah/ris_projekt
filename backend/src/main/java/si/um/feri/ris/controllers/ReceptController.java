@@ -31,6 +31,14 @@ public class ReceptController {
     }
 
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Recept> getRecipeById(@PathVariable Long id) {
+        Recept recept = receptService.getReceptById(id);
+
+        return ResponseEntity.ok(recept);
+    }
+
+
     @PutMapping("/{id_recept}")
     public ResponseEntity<Recept> updateRecipe(@PathVariable Long id_recept, @RequestBody Recept updatedRecipe) {
         Recept updated = receptService.updateRecipe(id_recept, updatedRecipe);

@@ -17,6 +17,8 @@
     - [x] brisanje receptov 
 - [x] prilagodi tabelo Uporabnik (dodaj bool administrator )
 - [] urejanje receptov
+    - [] bakcend
+        - [x] get recept by id 
     - [] frontend
         - [] izpolnjevanje vnosnih polj z obstoječimi informacijami
         - [] posodobitev in prikaz posodobljenih informacij

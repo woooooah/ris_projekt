@@ -1,6 +1,7 @@
 package si.um.feri.ris.repositories;
 
 import java.util.List;
+// import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -13,4 +14,8 @@ public interface ReceptRepository extends JpaRepository<Recept, Long>{
     List<Recept> findAllDistinct(); 
 
     List<Recept> findByNaslovContainingIgnoreCase(String naslov);
+
+    // Optional<Recept> receptId(Long id_r);
+
+
 }

@@ -1,8 +1,8 @@
-// package si.um.feri.ris.repositories;
+package si.um.feri.ris.repositories;
 
-// import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-// import si.um.feri.ris.entities.Sestavina;
+import si.um.feri.ris.entities.Sestavina;
 
-// public interface SestavinaRepository extends JpaRepository<Sestavina, Long> {
-// } 
+public interface SestavinaRepository extends JpaRepository<Sestavina, Long> {
+} 
