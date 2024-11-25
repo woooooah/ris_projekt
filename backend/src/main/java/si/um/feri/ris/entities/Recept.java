@@ -63,10 +63,10 @@ public class Recept {
         return koraki;
     }
 
-    // //SETTERJI
-    // public void setId_recept(Long id_recept) {
-    //     this.id_recept = id_recept;
-    // }
+    //SETTERJI
+    public void setId_recept(Long id_recept) {
+        this.id_recept = id_recept;
+    }
 
     public void setNaslov(String naslov) {
         this.naslov = naslov;
@@ -80,11 +80,11 @@ public class Recept {
         this.skupni_cas = skupni_cas;
     }
 
-    // public void setSestavine(List<Sestavina> sestavine) {
-    //     this.sestavine = sestavine;
-    // }
+    public void setSestavine(List<Sestavina> sestavine) {
+        this.sestavine = sestavine;
+    }
 
-    // public void setKoraki(List<Korak> koraki) {
-    //     this.koraki = koraki;
-    // }
+    public void setKoraki(List<Korak> koraki) {
+        this.koraki = koraki;
+    }
 }
