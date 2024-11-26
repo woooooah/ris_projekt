@@ -30,12 +30,13 @@ public class UporabnikController {
     }
 
    
-
+/*
     @PostMapping("/register")
     public ResponseEntity<?> registerUporabnik(@RequestBody Uporabnik uporabnik) {
         if (uporabnik.getIme() == null || uporabnik.getPriimek() == null || uporabnik.getEmail() == null ||
         uporabnik.getUsername() == null || uporabnik.getGeslo() == null) {
         return ResponseEntity.badRequest().body("Vsa polja so obvezna!");
+        
     }
 
         if (uporabnikService.existsByUsername(uporabnik.getUsername())) {
@@ -45,7 +46,33 @@ public class UporabnikController {
         Uporabnik savedUporabnik = uporabnikService.saveUporabnik(uporabnik);
         return ResponseEntity.ok(savedUporabnik);
     }
-   
+         */
+   @PostMapping("/register")
+public ResponseEntity<?> registerUporabnik(@RequestBody Uporabnik uporabnik) {
+    // Validacija polj
+    if (uporabnik.getIme() == null || uporabnik.getPriimek() == null || 
+        uporabnik.getEmail() == null || uporabnik.getUsername() == null || 
+        uporabnik.getGeslo() == null) {
+        return ResponseEntity.badRequest().body("Vsa polja so obvezna!");
+    }
+    
+
+    // Preverite, ali username že obstaja
+    if (uporabnikService.existsByUsername(uporabnik.getUsername())) {
+        return ResponseEntity.badRequest().body("Username already exists");
+    }
+
+    try {
+        // Shranimo uporabnika
+        Uporabnik savedUporabnik = uporabnikService.saveUporabnik(uporabnik);
+        return ResponseEntity.ok(savedUporabnik);
+    } catch (Exception e) {
+        // Prikažite napako v logih
+        e.printStackTrace();
+        return ResponseEntity.status(500).body("Napaka pri registraciji uporabnika.");
+    }
+}
+
 
     // PUT: Update an existing user
     @PutMapping("/{id}")
