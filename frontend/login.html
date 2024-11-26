@@ -14,7 +14,7 @@
                 <h1>FlavourfulFinds</h1>
                 <p id = "datum"></p>
             <hr />
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbarSupportedContent">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="#"></a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,12 +48,12 @@
             
                 <h2>Log in</h2>
 
-                <form id="registracija" class=" needs-validation "  novalidate onsubmit="preveriObrazec(event)">
+                <form id="prijava" class=" needs-validation "  novalidate onsubmit="preveriObrazec(event)">
                     <br>
                     <div class="form-group">
                         <label for="email" class="form-label">Email</label> 
                         <br>
-                            <input name="email" id="email" class="form-control "  placeholder="lord.voldemort@power.org" onblur="toUpperCase()"/>
+                            <input name="email" id="email" class="form-control "  placeholder="lord.voldemort@power.org" onblur="pretvoriVVelikeCrke(this)"/>
                         <div class="invalid-feedback">Invalid email.</div>
                     </div>
                     <br>
@@ -73,6 +73,7 @@
                     <input type="submit" name="gumbek_submit" value="Log in" class="btn btn-outline-dark">
                     <input type="reset" name="gumbek_reset" class="btn btn-secondary" value="Reset">    
                 </form>
+                <div id="result"></div>
             </div>     
         </div>     
         

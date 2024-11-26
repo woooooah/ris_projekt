@@ -38,6 +38,7 @@ INSERT INTO korak (zaporedno_st, opis, tk_recept) VALUES
     (4, 'Break chocolate into pieces and place in a microwave-proof bowl with the butter. Melt in the microwave in 30 second bursts, stirring in between, until smooth. (Stir in optional flavourings at this point, but read Note 6 first). Set aside to cool slightly while you proceed with other steps.', 3),
     (5, 'Beat cream until stiff peaks form, being careful not to over-whip', 3),
     (6, 'Whip whites: Add sugar. Beat whites until firm peaks form', 3);
+    TRUNCATE TABLE uporabnik;
 
 INSERT INTO uporabnik (ime, priimek, email, username, geslo, admin) VALUES
     ('Kaja', 'Vidmar', 'kaja.vidmar@gmail.com', 'KajaV', 'geslo123', TRUE),
