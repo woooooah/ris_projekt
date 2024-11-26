@@ -1,5 +1,8 @@
 package si.um.feri.ris.controllers;
 
+import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +33,11 @@ public class UporabnikController {
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUporabnik(@RequestBody Uporabnik uporabnik) {
+        if (uporabnik.getIme() == null || uporabnik.getPriimek() == null || uporabnik.getEmail() == null ||
+        uporabnik.getUsername() == null || uporabnik.getGeslo() == null) {
+        return ResponseEntity.badRequest().body("Vsa polja so obvezna!");
+    }
+
         if (uporabnikService.existsByUsername(uporabnik.getUsername())) {
             return ResponseEntity.badRequest().body("Username already exists");
         }
@@ -61,6 +69,24 @@ public class UporabnikController {
         return UporabnikRepository.save(user);
     }
         */
+
+        @PostMapping("/login")
+        public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
+            String email = credentials.get("email");
+            String geslo = credentials.get("geslo");
+
+            Optional<Uporabnik> uporabnik = uporabnikService.findByEmail(email);
+            if (uporabnik.isPresent() && uporabnik.get().getGeslo().equals(geslo)) {
+                return ResponseEntity.ok(Map.of(
+                    "id", uporabnik.get().getId_uporabnik(),
+                    "username", uporabnik.get().getUsername(),
+                    "email", uporabnik.get().getEmail()
+                ));
+            } else {
+                return ResponseEntity.status(401).body("Invalid email or password");
+        }
+}
+
 
 
         // DELETE: Delete a user
