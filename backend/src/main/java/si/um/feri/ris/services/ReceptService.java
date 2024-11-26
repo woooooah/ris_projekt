@@ -11,6 +11,7 @@ import si.um.feri.ris.entities.Korak;
 import si.um.feri.ris.entities.Recept;
 import si.um.feri.ris.entities.Sestavina;
 import si.um.feri.ris.repositories.ReceptRepository;
+// import si.um.feri.ris.exceptions.ReceptNotFoundException;
 
 @Service
 public class ReceptService {
@@ -85,6 +86,31 @@ public class ReceptService {
     public List<Recept> isciRecepte(String naslov) {
         return receptRepository.findByNaslovContainingIgnoreCase(naslov);
     }   
+
+    // public Recept getRecipeById(Long id_recept) {
+    //     Optional<Recept> optionalRecept = receptRepository.findById(id_recept);
+    //     return optionalRecept.orElse(null);
+    //     // return receptRepository.findById(id_recept).orElse(null);
+    // }
+
+    public Recept getReceptById(Long id) {
+        return receptRepository.findById(id).orElse(null);
+                // .orElseThrow(() -> new ReceptNotFoundException("Recept not found with id: " + id));
+    }
+    
+    // public Recept receptId(Long id_r) {
+    //     // Optional<Recept
+    //     return receptRepository.receptId(id_r);
+    // }
+
+    // public ReceptService(ReceptRepository receptRepository) {
+    //     this.receptRepository = receptRepository;
+    // }
+
+    // public Recept getReceptById(Long id) {
+    //     return receptRepository.findById(id)
+    //             .orElseThrow(() -> new ReceptNotFoundException("Recept not found with id: " + id));
+    // }
 
 
 }
