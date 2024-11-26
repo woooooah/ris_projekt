@@ -22,12 +22,13 @@ document.addEventListener("DOMContentLoaded", function(){
             receptItem.className = "produkt col-lg-3 col-md-4 col-sm-6";
             const imageUrl = "slike/food/hbd.jpeg";
             receptItem.innerHTML = `
-                <img src="${imageUrl}" alt="${recept.naslov}">
-                <h5>${recept.naslov}</h5>
-                ${Math.floor(recept.skupni_cas / 60)}h ${recept.skupni_cas % 60}min
-                <br>
-                <button class="btn btn-outline-danger" onclick="deleteRecipe(${recept.id_recept})">Delete</button>
-            
+                <a href="recept.html?id=${recept.id_recept}" style="text-decoration: none; color: inherit;">
+                    <img src="${imageUrl}" alt="${recept.naslov}">
+                    <h5>${recept.naslov}</h5>
+                    ${Math.floor(recept.skupni_cas / 60)}h ${recept.skupni_cas % 60}min
+                    <br>
+                    <button class="btn btn-outline-danger" onclick="deleteRecipe(${recept.id_recept})">Delete</button>
+                </a>
             `;
         rowDiv.appendChild(receptItem);
         });
@@ -81,11 +82,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 
                 const imageUrl = "slike/food/hbd.jpeg";
                 receptItem.innerHTML = `
-                    <img src="${imageUrl}" alt="${recipe.naslov}">
-                    <h5>${recipe.naslov}</h5>
-                    ${Math.floor(recipe.skupni_cas / 60)}h ${recipe.skupni_cas % 60}min <br>
-                    <button class="btn btn-outline-danger" onclick="deleteRecipe(${recipe.id_recept})">Delete</button>
-                    
+                    <a href="recept.html?id=${recipe.id_recept}" style="text-decoration: none; color: inherit;">
+                        <img src="${imageUrl}" alt="${recipe.naslov}">
+                        <h5>${recipe.naslov}</h5>
+                        ${Math.floor(recipe.skupni_cas / 60)}h ${recipe.skupni_cas % 60}min <br>
+                        <button class="btn btn-outline-danger" onclick="deleteRecipe(${recipe.id_recept})">Delete</button>
+                    </a>
                 `;
                 rowDiv.appendChild(receptItem);
             });
