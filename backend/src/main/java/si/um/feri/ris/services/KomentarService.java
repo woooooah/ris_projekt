@@ -53,6 +53,13 @@ public class KomentarService {
         return komentarRepository.save(komentar);
     }
     
+    public void deleteKomentar(Long komentarId) {
+        if (komentarRepository.existsById(komentarId)) {
+            komentarRepository.deleteById(komentarId);
+        } else {
+            throw new IllegalArgumentException("Komentar with ID " + komentarId + " does not exist.");
+        }
+    }
     
 }
 

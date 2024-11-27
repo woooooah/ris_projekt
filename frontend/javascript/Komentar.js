@@ -19,10 +19,22 @@ async function fetchComments() {
         }
         const comments = await response.json();
         displayComments(comments);
+
+        // Reattach delete button event listeners after rendering comments
+        document.querySelectorAll(".delete-btn").forEach(button => {
+            button.addEventListener("click", async function () {
+                const komentarId = this.getAttribute("data-id");
+                if (confirm("Are you sure you want to delete this comment?")) {
+                    await deleteComment(komentarId);
+                    fetchComments(); // Refresh comments list
+                }
+            });
+        });
     } catch (error) {
         console.error("Error fetching comments:", error);
     }
 }
+
 
 // Prikaz komentarjev
 function displayComments(comments) {
@@ -35,6 +47,9 @@ function displayComments(comments) {
         listItem.innerHTML = `
             <strong>${comment.uporabnik.ime}:</strong> ${comment.vsebina}
             <br><small>${comment.datum}</small>
+            <button class="btn btn-danger btn-sm float-end delete-btn" data-id="${comment.id}">
+                Delete
+            </button>
         `;
         commentsList.appendChild(listItem);
     });
@@ -80,6 +95,22 @@ document.getElementById("comment-form").addEventListener("submit", async functio
     }
     
 });
+
+// Izbris Komentarjev
+async function deleteComment(komentarId) {
+    try {
+        const response = await fetch(`http://localhost:8080/api/komentarji/izbris/${komentarId}`, {
+            method: 'DELETE',
+        });
+        if (!response.ok) {
+            throw new Error("Failed to delete comment.");
+        }
+        alert("Comment deleted successfully!");
+    } catch (error) {
+        console.error("Error deleting comment:", error);
+    }
+}
+
 
 
 // Inicializira ob nalaganju strani
