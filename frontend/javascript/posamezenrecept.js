@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Get the recipe ID from the URL
     const urlParams = new URLSearchParams(window.location.search);
     const recipeId = urlParams.get('id');
 
@@ -8,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    // Fetch recipe details
     fetch(`http://localhost:8080/api/recepti/${recipeId}`)
         .then(response => {
             if (!response.ok) {
@@ -17,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return response.json();
         })
         .then(data => {
-            // Update the DOM with recipe details
             document.getElementById('recipe-title').textContent = data.naslov;
             document.getElementById('recipe-times').textContent = 
                 `Prep: ${Math.floor(data.cas_priprave / 60)}h ${data.cas_priprave % 60}min, ` +

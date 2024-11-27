@@ -61,7 +61,7 @@ public class UporabnikService {
         return uporabnikRepository.findByEmail(email);
     }
     
-
+    
 }
 
 /*

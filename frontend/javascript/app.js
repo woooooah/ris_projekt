@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
     const isciForm= document.getElementById('isciForm');
     const receptList =document.getElementById('recept-list');
@@ -103,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
 });  
 
+/*
 function deleteRecipe(recipeId) {
     const confirmDelete = confirm("Are you sure you want to delete this recipe?");
     if (confirmDelete) {
@@ -134,6 +136,69 @@ function deleteRecipe(recipeId) {
         });
     }
 }
+*/
+document.addEventListener('DOMContentLoaded', function () {
+    // Preverimo, ali je uporabnik prijavljen
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+
+    if (loggedInUser) {
+        // Če je uporabnik prijavljen, preverimo, ali je admin
+        if (loggedInUser.admin === true) {
+            showDeleteButtons(); // Prikažemo gumbe za brisanje
+        } else {
+            hideDeleteButtons(); // Skrijemo gumbe za brisanje
+        }
+    } else {
+        // Če ni prijavljen, skrijemo gumbe za brisanje
+        hideDeleteButtons();
+    }
+});
+
+// Funkcija za prikazovanje gumbov za brisanje
+function showDeleteButtons() {
+    const deleteButtons = document.querySelectorAll('.delete-recipe-btn');
+    deleteButtons.forEach(button => {
+        button.style.display = 'inline-block'; // Prikažemo gumbe za brisanje
+    });
+}
+
+// Funkcija za skrivanje gumbov za brisanje
+function hideDeleteButtons() {
+    const deleteButtons = document.querySelectorAll('.delete-recipe-btn');
+    deleteButtons.forEach(button => {
+        button.style.display = 'none'; // Skrijemo gumbe za brisanje
+    });
+}
+
+// Funkcija za brisanje recepta
+function deleteRecipe(recipeId) {
+    const confirmDelete = confirm("Are you sure you want to delete this recipe?");
+    if (confirmDelete) {
+        const url = `http://localhost:8080/api/recepti/${recipeId}`;
+
+        fetch(url, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Recipe deleted successfully');
+
+                const recipeElement = document.querySelector(`div[data-id="${recipeId}"]`);
+                if (recipeElement) {
+                    recipeElement.remove(); // Odstranimo recept iz UI
+                }
+            } else {
+                return response.text().then(text => {
+                    console.error('Error deleting recipe:', text);
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting recipe:', error);
+        });
+    }
+}
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const recipeForm = document.getElementById('recipe-form');
@@ -355,117 +420,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 //
 });
-
-
-document.getElementById('registracija').addEventListener('gumbek_submit', function (event) {
-    event.preventDefault();
-
-    const ime = document.getElementById('name').value;
-    const priimek = document.getElementById('surname').value;
-    const email = document.getElementById('email').value;
-    const username = document.getElementById('username').value;
-    const geslo = document.getElementById('password').value;
-
-    const uporabnik = {
-        ime: ime,
-        priimek: priimek,
-        email: email,
-        username: username,
-        geslo: geslo,
-        //admin: false // Predpostavljam, da je admin status nastavljen na backendu ali po drugih kriterijih
-    };
-
-    fetch('http://localhost:8080/api/uporabniki/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(uporabnik)
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                return response.text().then(text => { throw new Error(text); });
-            }
-        })
-        .then(data => {
-            document.getElementById('result').innerHTML = `<p style="color: green;">Uporabnik ${data.username} uspešno registriran!</p>`;
-        })
-        .catch(error => {
-            document.getElementById('result').innerHTML = `<p style="color: red;">Napaka: ${error.message}</p>`;
-        });
-});
-/*
-document.getElementById('register-form').addEventListener('submit', function (event) {
-    event.preventDefault(); 
-
-    const ime = document.getElementById('name').value;
-    const priimek = document.getElementById('surname').value;
-    const email = document.getElementById('email').value;
-    const username = document.getElementById('username').value;
-    const geslo = document.getElementById('password').value;
-
-    const adminEmails = ['kaja.vidmar@gmail.com', 'sanja.mursic@gmail.com', 'tara.sedovsek@gmail.com']; 
-    const admin = adminEmails.includes(email.toLowerCase());
-
-
-    const uporabnik = {
-        ime: ime,
-        priimek: priimek,
-        email: email,
-        username: username,
-        geslo: geslo,
-        admin: admin
-    };
-
-    fetch('http://localhost:8080/api/uporabniki')
-    .then(response => response.json())
-    .then(data => console.log(data));
-
-    // Pošlji zahtevo na backend
-    fetch('http://localhost:8080/api/uporabniki/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(uporabnik)
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            return response.text().then(text => { throw new Error(text); });
-        }
-    })
-    .then(data => {
-        document.getElementById('result').innerHTML = `<p style="color: green;">Uporabnik ${data.username} uspešno registriran!</p>`;
-    })
-    .catch(error => {
-        document.getElementById('result').innerHTML = `<p style="color: red;">Napaka: ${error.message}</p>`;
-    });
-});*/
-
-
-//PRIKAZ VSEH UPORABNIKOV DELA
-/*
-fetch('http://localhost:8080/api/uporabniki')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Napaka pri pridobivanju uporabnikov');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Shranjeni uporabniki:', data);
-        const userList = document.getElementById('user-list');
-        userList.innerHTML = '';
-        data.forEach(user => {
-            userList.innerHTML += `
-                <p>Uporabnik: ${user.ime} ${user.priimek}, Email: ${user.email}, Uporabniško ime: ${user.username}</p>
-            `;
-        });
-    })
-    .catch(error => console.error('Napaka:', error));
-    */
-
