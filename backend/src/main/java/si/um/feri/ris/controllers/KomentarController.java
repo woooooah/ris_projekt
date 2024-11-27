@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import si.um.feri.ris.entities.Komentar;
+import si.um.feri.ris.entities.Recept;
 import si.um.feri.ris.services.KomentarService;
+import si.um.feri.ris.services.ReceptService;
 
 @RestController
 @RequestMapping("/api/komentarji")
@@ -20,10 +22,13 @@ import si.um.feri.ris.services.KomentarService;
 public class KomentarController {
 
     private final KomentarService komentarService;
+    private ReceptService receptService;
 
-    public KomentarController(KomentarService komentarService) {
+    public KomentarController(KomentarService komentarService, ReceptService receptService) {
         this.komentarService = komentarService;
+        this.receptService = receptService;
     }
+    
 
     @GetMapping("/recept/{receptId}")
     public ResponseEntity<List<Komentar>> getKomentarjiByRecept(@PathVariable Long receptId) {
@@ -31,14 +36,27 @@ public class KomentarController {
         return ResponseEntity.ok(komentarji);
     }
 
-    @PostMapping("/recept/{receptId}")
-    public ResponseEntity<Komentar> addKomentar(@RequestBody Komentar komentar) {
+    @PostMapping("/nov/recept/{receptId}")
+    public ResponseEntity<Komentar> addKomentar(@PathVariable Long receptId, @RequestBody Komentar komentar) {
         try {
+            // Fetch the Recept entity
+            Recept recept = receptService.getReceptById(receptId);
+            if (recept == null) {
+                return ResponseEntity.status(404).body(null); // Recept not found
+            }
+    
+            // Associate Recept with Komentar
+            komentar.setRecept(recept);
+    
+            // Save the Komentar
             Komentar newKomentar = komentarService.addKomentar(komentar);
             return ResponseEntity.ok(newKomentar);
         } catch (Exception e) {
-            return ResponseEntity.status(500).body(null); // Or log the error
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(null);
         }
     }
+    
+
     
 }

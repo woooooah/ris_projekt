@@ -88,5 +88,4 @@ public class Uporabnik {
      @OneToMany(mappedBy = "uporabnik", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Komentar> komentarji = new ArrayList<>();
 
-
 }

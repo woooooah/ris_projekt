@@ -51,7 +51,12 @@ DROP TABLE korak;
 DROP TABLE recept;
 
 INSERT INTO komentar (vsebina, tk_uporabnik, tk_recept, datum)
-VALUES ('Zelo dobro! Moji otroci obožujejo ta recept.', 1, 10, '2023-11-26');
+VALUES ('Zelo dobro! Moji otroci obožujejo ta recept.', 1, 1, '2023-11-26');
+
+SELECT * FROM Recept WHERE id_recept = 3;
+
+SELECT * FROM Uporabnik WHERE id_uporabnik = 1;
+
 
 
 SHOW CREATE TABLE Sestavina;  -- Check the foreign key relationship for `Sestavina`

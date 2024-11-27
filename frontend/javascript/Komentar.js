@@ -1,13 +1,16 @@
-// Replace with the actual recipe ID
-const receptId = 1; // Example: Replace with dynamic value if needed
+const urlParams = new URLSearchParams(window.location.search);
+const receptId = urlParams.get('id');
 //const commentsUrl = `/api/komentarji/recept/${receptId}`;
 const commentsUrl = 'http://localhost:8080/api/komentarji/recept/' + receptId;
-const postCommentUrl = 'http://localhost:8080/api/komentarji/recept/'+ receptId; // Update to match your backend's URL
+const postCommentUrl = 'http://localhost:8080/api/komentarji/nov/recept/'+ receptId;
+
+// Ensure `receptId` is a valid number
+if (!receptId || isNaN(receptId)) {
+    console.error("Invalid receptId in URL.");
+}
 
 
-
-
-// Fetch comments from the backend
+// Fetch komentarjev iz backenda
 async function fetchComments() {
     try {
         const response = await fetch(commentsUrl);
@@ -21,10 +24,10 @@ async function fetchComments() {
     }
 }
 
-// Display comments in the comments section
+// Prikaz komentarjev
 function displayComments(comments) {
     const commentsList = document.getElementById("comments-list");
-    commentsList.innerHTML = ""; // Clear any existing comments
+    commentsList.innerHTML = ""; // Izprazni kakše komentarje od prej
 
     comments.forEach(comment => {
         const listItem = document.createElement("li");
@@ -37,7 +40,7 @@ function displayComments(comments) {
     });
 }
 
-// Handle submitting a new comment
+// Dodajanje komentarjev
 document.getElementById("comment-form").addEventListener("submit", async function(event) {
     event.preventDefault();
 
@@ -49,7 +52,7 @@ document.getElementById("comment-form").addEventListener("submit", async functio
 
     const newComment = {
         vsebina: commentContent,
-        uporabnik: { id: 1 },  // Assuming the logged-in user has an ID of 1, replace this with actual user data
+        uporabnik: { id_uporabnik: 1 },  // Za enkrat še fiksen uporabnik
         recept: { id_recept: receptId },
         datum: new Date().toISOString()
     };
@@ -68,10 +71,10 @@ document.getElementById("comment-form").addEventListener("submit", async functio
         }
     
         const addedComment = await response.json();
-        console.log("Comment added:", addedComment);  // Log the response to check if it's correct
+        console.log("Comment added:", addedComment);  // Log da vidim če je ok
         alert("Comment added successfully!");
-        fetchComments();  // Update the comment list after successful submission
-        document.getElementById("comment-form").reset();  // Clear the form
+        fetchComments();  // Updejta seznam komentarjev po POST novega
+        document.getElementById("comment-form").reset();  // Izprazni obrazec
     } catch (error) {
         console.error("Error submitting comment:", error);
     }
@@ -79,7 +82,7 @@ document.getElementById("comment-form").addEventListener("submit", async functio
 });
 
 
-// Initialize on page load
+// Inicializira ob nalaganju strani
 document.addEventListener("DOMContentLoaded", () => {
     fetchComments();
 });
