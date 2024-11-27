@@ -1,3 +1,4 @@
+-- Active: 1732032101906@@127.0.0.1@3306@recepti
 DROP DATABASE IF EXISTS recepti;
 CREATE DATABASE recepti;
 USE recepti;

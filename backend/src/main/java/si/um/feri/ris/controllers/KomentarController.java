@@ -31,9 +31,14 @@ public class KomentarController {
         return ResponseEntity.ok(komentarji);
     }
 
-    @PostMapping
+    @PostMapping("/recept/{receptId}")
     public ResponseEntity<Komentar> addKomentar(@RequestBody Komentar komentar) {
-        Komentar newKomentar = komentarService.addKomentar(komentar);
-        return ResponseEntity.ok(newKomentar);
+        try {
+            Komentar newKomentar = komentarService.addKomentar(komentar);
+            return ResponseEntity.ok(newKomentar);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null); // Or log the error
+        }
     }
+    
 }
