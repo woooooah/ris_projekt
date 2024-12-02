@@ -35,14 +35,13 @@
 ## Sanja
 - [X] popravi dpu (extend za brisanje urejanje ..., odstranitev prijave in registracije)
 - [X] dodaj dpu v readme (kot sliko kr) <!-- Ne gre dodati kot sliko, lahko samo povezavo/pot do nje -->
-- [] prikaz komentarjev
-    - [] dodaj html (oz pac naredi, se ne obstaja)
-        - [] 
-    - [] backend 
-    - [] frontend
-    - [] brisanje komentarjev
-        - [] backend 
-        - [] frontend
+- [x] prikaz komentarjev
+    - [x] dodaj html (oz pac naredi, se ne obstaja)
+    - [x] backend 
+    - [x] frontend
+    - [x] brisanje komentarjev
+        - [x] backend 
+        - [x] frontend
         - [] admin vs navadni user 
 
 ## Tara
