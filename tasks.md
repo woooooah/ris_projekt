@@ -46,16 +46,16 @@
 
 ## Tara
 - [X] popravi vizijo
-- [] registracija
-    - [] backend
-    - [] frontend
+- [X] registracija
+    - [X] backend
+    - [X] frontend
         - [X] dodaj html povezavo v menu bar (za registracija.html)
         - [X] dodaj html povezavo v menu bar (za login.html)
-- [] log in 
-    - [] backend 
-    - [] frontend
-        - [] admin
-        - [] navadni user 
+- [X] log in 
+    - [X] backend 
+    - [X] frontend
+        - [X] admin
+        - [X] navadni user 
 
 
 
