@@ -50,6 +50,16 @@ public class Recept {
     private List<Komentar> komentarji = new ArrayList<>();
 
 
+    public Recept(Long id_recept, String naslov) {
+        this.id_recept = id_recept;
+        this.naslov = naslov;
+    }
+    
+    // Optional: Include a default no-argument constructor (important for JPA)
+    public Recept() {
+    }
+    
+
 
     //GETTERJI
     public Long getId_recept() {

@@ -26,6 +26,20 @@ public class Komentar {
 
     private String datum;
 
+    //konstruktorji
+
+    public Komentar(Long id, String vsebina, Uporabnik uporabnik, Recept recept) {
+        this.id = id;
+        this.vsebina = vsebina;
+        this.uporabnik = uporabnik;
+        this.recept = recept;
+    }
+
+        // Default Constructor
+        public Komentar() {
+        }
+    
+
     // Getters and setters
     public Long getId() {
         return id;
@@ -42,6 +56,7 @@ public class Komentar {
     public void setVsebina(String vsebina) {
         this.vsebina = vsebina;
     }
+
 
     public Uporabnik getUporabnik() {
         return uporabnik;

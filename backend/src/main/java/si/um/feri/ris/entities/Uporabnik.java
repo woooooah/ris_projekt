@@ -36,6 +36,21 @@ public class Uporabnik {
 
     @Column(nullable = false)
     private boolean admin;
+
+    public Uporabnik(Long id_uporabnik, String ime, String priimek, String email) {
+        this.id_uporabnik = id_uporabnik;
+        this.ime = ime;
+        this.priimek = priimek;
+        this.email = email;
+        this.username = username;
+        this.geslo = geslo;
+        this.admin = admin;
+    }
+    
+    // Optional: Include a default no-argument constructor (important for JPA)
+    public Uporabnik() {
+    }
+    
     
      public Long getId_uporabnik() {
          return id_uporabnik;

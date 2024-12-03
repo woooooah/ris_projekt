@@ -20,21 +20,23 @@ import si.um.feri.ris.services.ReceptService;
 
 @RestController
 @RequestMapping("/api/komentarji")
-@CrossOrigin(origins = "http://localhost:3000") 
+@CrossOrigin(origins = "http://localhost:3000")
 public class KomentarController {
 
     private final KomentarService komentarService;
-    private ReceptService receptService;
+    private final ReceptService receptService;
 
     public KomentarController(KomentarService komentarService, ReceptService receptService) {
         this.komentarService = komentarService;
         this.receptService = receptService;
     }
-    
 
     @GetMapping("/recept/{receptId}")
     public ResponseEntity<List<Komentar>> getKomentarjiByRecept(@PathVariable Long receptId) {
         List<Komentar> komentarji = komentarService.getCommentsByRecept(receptId);
+        if (komentarji.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
         return ResponseEntity.ok(komentarji);
     }
 
@@ -44,31 +46,32 @@ public class KomentarController {
             // Fetch the Recept entity
             Recept recept = receptService.getReceptById(receptId);
             if (recept == null) {
-                return ResponseEntity.status(404).body(null); // Recept not found
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build(); // Recept not found
             }
-    
+
             // Associate Recept with Komentar
             komentar.setRecept(recept);
-    
+
             // Save the Komentar
             Komentar newKomentar = komentarService.addKomentar(komentar);
             return ResponseEntity.ok(newKomentar);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         } catch (Exception e) {
             e.printStackTrace();
-            return ResponseEntity.status(500).body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
-    
 
-        @DeleteMapping("/izbris/{komentarId}")
-        public ResponseEntity<Void> deleteKomentar(@PathVariable Long komentarId) {
+    @DeleteMapping("/izbris/{komentarId}")
+    public ResponseEntity<Void> deleteKomentar(@PathVariable Long komentarId) {
         try {
             komentarService.deleteKomentar(komentarId);
-            return ResponseEntity.noContent().build(); // 204 No Content on successful deletion
+            return ResponseEntity.noContent().build(); // 204 No Content
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         } catch (Exception e) {
-            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
-
-        }
+    }
 }
