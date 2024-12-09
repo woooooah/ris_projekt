@@ -6,19 +6,19 @@
 **5** = zahtevno
 **8+** = kompleksno
 
-- [ ]  backend:
-    - [ ]  dodaj v bazo število porcij - **3**
-    - [ ]  popravi testne podatke - **2**
-    - [ ]  preveri, da deluje pridobivanje receptov (z dodanim št. porcij) - **2**
-    - [ ]  preveri, da deluje posodabljanje receptov (z dodanim št. porcij) - **3**
-- [ ]  frontend:
-    - [ ]  obrazcu za dodajanje recpepta dodaj polje število porcij - **3**
-    - [ ]  obrazcu za posodabljanje recepta dodaj število porcij - **3**
-    - [ ]  posameznemu receptu dodaj število porcij - **2**
-- [ ]  Preračunavanje porcij
-    - [ ]  frontend:
-        - [ ]  input polje za vnos števila porcij pri prikazu posameznega recepta - **3**
-        - [ ]  preračunavanje števila porcij - **5**
+- backend:
+    - dodaj v bazo število porcij - **3**
+    - popravi testne podatke - **2**
+    - preveri, da deluje pridobivanje receptov (z dodanim št. porcij) - **2**
+    - preveri, da deluje posodabljanje receptov (z dodanim št. porcij) - **3**
+- frontend:
+    - obrazcu za dodajanje recpepta dodaj polje število porcij - **3**
+    - obrazcu za posodabljanje recepta dodaj število porcij - **3**
+    - posameznemu receptu dodaj število porcij - **2**
+- Preračunavanje porcij
+    - frontend:
+        - input polje za vnos števila porcij pri prikazu posameznega recepta - **3**
+        - preračunavanje števila porcij - **5**
 
 
 # TO-DO
