@@ -35,6 +35,7 @@ public class ReceptService {
             existingRecipe.setNaslov(updatedRecipe.getNaslov());
             existingRecipe.setCas_priprave(updatedRecipe.getCas_priprave());
             existingRecipe.setSkupni_cas(updatedRecipe.getSkupni_cas());
+            existingRecipe.setStevilo_porcij(updatedRecipe.getStevilo_porcij());
     
             //zbrises vse obstojece in posodobis nove
             existingRecipe.getSestavine().clear();

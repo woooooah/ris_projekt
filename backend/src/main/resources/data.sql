@@ -1,13 +1,13 @@
 
 -- #INSERT INTO sestavina (naziv, kolicina, tk_recept) VALUES ('eggs', 3, 1);
- INSERT INTO recept (naslov, cas_priprave, skupni_cas) VALUES ('Caaake', 190, 190 ), 
-    (' Pumpkin pasties', 77, 180 ), 
-    (' Butterbeer', 35, 35 ), 
-    (' Chocolate frogs', 235, 235 ), 
-    (' Choco', 20, 180 ), 
-    (' Butterbeer', 35, 35 ), 
-    (' Chocolate frogs', 235, 235 ), 
-    (' Choco', 20, 180 );;
+ INSERT INTO recept (naslov, cas_priprave, skupni_cas, stevilo_porcij) VALUES ('Caaake', 190, 190, 12 ), 
+    (' Pumpkin pasties', 77, 180, 6), 
+    (' Butterbeer', 35, 35, 7 ), 
+    (' Chocolate frogs', 235, 235, 8), 
+    (' Choco', 20, 180, 9 ), 
+    (' Butterbeer', 35, 35, 7 ), 
+    (' Chocolate frogs', 235, 235, 13), 
+    (' Choco', 20, 180, 7);;
 
  TRUNCATE TABLE sestavina;
  INSERT INTO sestavina (naziv, kolicina, enota, tk_recept) VALUES ('eggs', 3, '', 1),
@@ -48,6 +48,8 @@ INSERT INTO uporabnik (ime, priimek, email, username, geslo, admin) VALUES
     ('Victor', 'Frankenstein', 'victor.frankenstein@picture.com', 'vic.fran', 'ustvarilsemPOŠAST', FALSE);
 DROP TABLE sestavina;
 DROP TABLE korak;
+DROP TABLE komentar;
+DROP TABLE uporabnik;
 DROP TABLE recept;
 
 INSERT INTO komentar (vsebina, tk_uporabnik, tk_recept, datum)

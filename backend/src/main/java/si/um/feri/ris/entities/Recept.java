@@ -34,6 +34,9 @@ public class Recept {
     @Column(nullable = false)
     private Long skupni_cas;
 
+    @Column(nullable = false)
+    private Long stevilo_porcij; 
+
     // One Recept can have many Sestavina
     @OneToMany(mappedBy = "recept", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -78,6 +81,10 @@ public class Recept {
         return skupni_cas;
     }
 
+    public Long getStevilo_porcij() {
+        return stevilo_porcij;
+    }
+
     public List<Sestavina> getSestavine() {
         return sestavine;
     }
@@ -101,6 +108,10 @@ public class Recept {
 
     public void setSkupni_cas(Long skupni_cas) {
         this.skupni_cas = skupni_cas;
+    }
+
+    public void setStevilo_porcij(Long stevilo_porcij) {
+        this.stevilo_porcij = stevilo_porcij;
     }
 
     public void setSestavine(List<Sestavina> sestavine) {
