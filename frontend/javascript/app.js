@@ -239,6 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('recipe-title').value = recipe.naslov;
                 document.getElementById('prep-time').value = recipe.cas_priprave;
                 document.getElementById('total-time').value = recipe.skupni_cas;
+                document.getElementById('servings').value = recipe.stevilo_porcij;
 
                 // Populate ingredients
                 clearIngredients();
@@ -262,6 +263,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('recipe-title').value = '';
         document.getElementById('prep-time').value = '';
         document.getElementById('total-time').value = '';
+        document.getElementById('servings').value = '';
         clearIngredients();
         clearSteps();
         document.getElementById('form-title').innerText = 'Create Recipe';
@@ -360,6 +362,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const title = document.getElementById('recipe-title').value;
         const prepTime = document.getElementById('prep-time').value;
         const totalTime = document.getElementById('total-time').value;
+        const servings = document.getElementById('servings').value;
 
         const ingredients = [];
         document.querySelectorAll('.ingredient-item').forEach(item => {
@@ -390,7 +393,8 @@ document.addEventListener("DOMContentLoaded", function() {
             cas_priprave: parseInt(prepTime),
             skupni_cas: parseInt(totalTime),
             sestavine: ingredients,
-            koraki: steps
+            koraki: steps,
+            stevilo_porcij: parseInt(servings)
         };
 
         const url = recipeId

@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 `Prep: ${Math.floor(data.cas_priprave / 60)}h ${data.cas_priprave % 60}min, ` +
                 `Total: ${Math.floor(data.skupni_cas / 60)}h ${data.skupni_cas % 60}min`;
 
+            document.getElementById('servings').textContent = 
+                `Servings: ${data.stevilo_porcij} per person`;
+
             const ingredientsList = document.getElementById('ingredients-list');
             data.sestavine.forEach(ingredient => {
                 const li = document.createElement('li');
@@ -35,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 p.textContent = `${step.zaporedno_st}. ${step.opis}`;
                 stepsList.appendChild(p);
             });
+
 
         
         })
