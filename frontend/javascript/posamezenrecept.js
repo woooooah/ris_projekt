@@ -20,8 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 `Prep: ${Math.floor(data.cas_priprave / 60)}h ${data.cas_priprave % 60}min, ` +
                 `Total: ${Math.floor(data.skupni_cas / 60)}h ${data.skupni_cas % 60}min`;
 
+
             document.getElementById('servings').textContent = 
-                `Servings: ${data.stevilo_porcij} per person`;
+                `For: ${data.stevilo_porcij} portions`;
 
             const ingredientsList = document.getElementById('ingredients-list');
             data.sestavine.forEach(ingredient => {
