@@ -65,7 +65,6 @@
     - [x] brisanje komentarjev
         - [x] backend 
         - [x] frontend
-        - [] admin vs navadni user 
 
 ## Tara
 - [X] popravi vizijo
