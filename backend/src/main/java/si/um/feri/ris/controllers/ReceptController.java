@@ -1,12 +1,22 @@
 package si.um.feri.ris.controllers;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import si.um.feri.ris.entities.HranilnaVrednost;
 import si.um.feri.ris.entities.Recept;
 import si.um.feri.ris.services.ReceptService;
 
@@ -78,4 +88,29 @@ public class ReceptController {
     //     List<Recept> recepti = receptService.getAllRecipes();
     //     return ResponseEntity.ok(recepti);
     // }
+
+    @PostMapping("/{receptId}/hranilnaVrednost")
+    public ResponseEntity<HranilnaVrednost> setHranilnaVrednost(
+            @PathVariable Long receptId,
+            @RequestBody HranilnaVrednost hranilnaVrednost) {
+        HranilnaVrednost newHranilnaVrednost = receptService.setHranilnaVrednost(receptId, hranilnaVrednost);
+        return ResponseEntity.ok(newHranilnaVrednost);
+    }
+    
+    @GetMapping("/{receptId}/hranilneVrednosti")
+    public ResponseEntity<List<HranilnaVrednost>> getHranilneVrednosti(@PathVariable Long receptId) {
+        Recept recept = receptService.getReceptById(receptId);
+        if (recept != null) {
+            List<HranilnaVrednost> hranilneVrednosti = recept.getHranilneVrednosti().stream()
+                    .map(hranilnaVrednost -> new HranilnaVrednost(hranilnaVrednost.getNaziv(), hranilnaVrednost.getKolicina(), hranilnaVrednost.getMerska_enota(), null))
+                    .collect(Collectors.toList());
+            return ResponseEntity.ok(hranilneVrednosti);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    
+
+
+
 }

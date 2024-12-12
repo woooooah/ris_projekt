@@ -55,11 +55,19 @@ DROP TABLE recept;
 INSERT INTO komentar (vsebina, tk_uporabnik, tk_recept, datum)
 VALUES ('Zelo dobro! Moji otroci obožujejo ta recept.', 1, 1, '2023-11-26');
 
+INSERT INTO hranilna_vrednost (naziv, kolicina, merska_enota, recept_id)
+VALUES ('Calorije', 750, 'kcal', 1),
+       ('Beljakovine', 25, 'g', 1),
+       ('Ogljikovi hidrati', 90, 'g', 1),
+       ('Maščobe', 35, 'g', 1);
+
 SELECT * FROM Recept WHERE id_recept = 3;
+
+SELECT * FROM hranilna_vrednost WHERE recept_id = 1;
 
 SELECT * FROM Uporabnik WHERE id_uporabnik = 1;
 
-
+DROP TABLE hranilna_vrednost;
 
 SHOW CREATE TABLE Sestavina;  -- Check the foreign key relationship for `Sestavina`
 SHOW CREATE TABLE Korak;

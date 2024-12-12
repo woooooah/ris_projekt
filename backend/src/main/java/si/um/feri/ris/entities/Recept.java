@@ -7,6 +7,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonView;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -36,6 +37,21 @@ public class Recept {
 
     @Column(nullable = false)
     private Long stevilo_porcij; 
+
+    @OneToMany(mappedBy = "recept", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<HranilnaVrednost> hranilneVrednosti = new ArrayList<>();
+
+    public interface Summary {}
+
+    @JsonView(Summary.class)
+    @JsonManagedReference
+    public List<HranilnaVrednost> getHranilneVrednosti() {
+        return hranilneVrednosti;
+    }
+
+    public void setHranilneVrednosti(List<HranilnaVrednost> hranilneVrednosti) {
+        this.hranilneVrednosti = hranilneVrednosti;
+    }
 
     // One Recept can have many Sestavina
     @OneToMany(mappedBy = "recept", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)

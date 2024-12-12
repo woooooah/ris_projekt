@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
 import jakarta.transaction.Transactional;
+import si.um.feri.ris.entities.HranilnaVrednost;
 import si.um.feri.ris.entities.Korak;
 import si.um.feri.ris.entities.Recept;
 import si.um.feri.ris.entities.Sestavina;
+import si.um.feri.ris.repositories.HranilnaVrednostRepository;
 import si.um.feri.ris.repositories.ReceptRepository;
 // import si.um.feri.ris.exceptions.ReceptNotFoundException;
 
@@ -55,6 +56,23 @@ public class ReceptService {
         }).orElse(null);
     }
     
+        @Autowired
+        private HranilnaVrednostRepository hranilnaVrednostRepository;
+
+        @Transactional
+        public HranilnaVrednost setHranilnaVrednost(Long receptId, HranilnaVrednost hranilnaVrednost) {
+            Recept recept = getReceptById(receptId);
+            if (recept == null) {
+                throw new RuntimeException("Recept not found with id: " + receptId);
+            }
+            hranilnaVrednost.setRecept(recept);
+            recept.getHranilneVrednosti().add(hranilnaVrednost); // Add to the list
+            return hranilnaVrednostRepository.save(hranilnaVrednost);
+        }
+        
+
+
+
     // @Transactional
     // public void deleteRecipe(Long id) {
     //     Optional<Recept> receptOptional = receptRepository.findById(id);
