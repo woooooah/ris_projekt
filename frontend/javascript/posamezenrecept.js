@@ -24,6 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 `Total: ${Math.floor(data.skupni_cas / 60)}h ${data.skupni_cas % 60}min`;
             document.getElementById("servings").textContent = `For: ${data.stevilo_porcij} portions`;
 
+            const hranilnaVrednostList = document.getElementById("hran-vred");
+            data.hranilneVrednosti.forEach((vrednost) => {
+                const li = document.createElement("li");
+                li.textContent = `${vrednost.kolicina} ${vrednost.merska_enota} ${vrednost.naziv}`;
+                hranilnaVrednostList.appendChild(li);
+                hranilneVrednosti.push(vrednost);
+            })
+
             const ingredientsList = document.getElementById("ingredients-list");
             data.sestavine.forEach((ingredient) => {
                 const li = document.createElement("li");
