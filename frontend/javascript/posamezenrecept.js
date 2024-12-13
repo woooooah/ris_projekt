@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const hranilnaVrednostList = document.getElementById("hran-vred");
             data.hranilneVrednosti.forEach((vrednost) => {
                 const li = document.createElement("li");
-                li.textContent = `${vrednost.kolicina} ${vrednost.merska_enota} ${vrednost.naziv}`;
+                li.textContent = `${vrednost.naziv}: ${vrednost.kolicina} ${vrednost.merska_enota} `;
                 hranilnaVrednostList.appendChild(li);
             })
 
