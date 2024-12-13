@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let originalServings;
     let ingredients = [];
-
+    
     fetch(`http://localhost:8080/api/recepti/${recipeId}`)
         .then((response) => {
             if (!response.ok) {
@@ -29,7 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 const li = document.createElement("li");
                 li.textContent = `${vrednost.kolicina} ${vrednost.merska_enota} ${vrednost.naziv}`;
                 hranilnaVrednostList.appendChild(li);
-                hranilneVrednosti.push(vrednost);
             })
 
             const ingredientsList = document.getElementById("ingredients-list");
