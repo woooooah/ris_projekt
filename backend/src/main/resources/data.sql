@@ -59,7 +59,9 @@ INSERT INTO hranilna_vrednost (naziv, kolicina, merska_enota, recept_id)
 VALUES ('Calorije', 750, 'kcal', 1),
        ('Beljakovine', 25, 'g', 1),
        ('Ogljikovi hidrati', 90, 'g', 1),
-       ('Maščobe', 35, 'g', 1);
+       ('Maščobe', 35, 'g', 1),
+       ('Vlaknine', 3, 'g', 1);
+       
 
 SELECT * FROM Recept WHERE id_recept = 3;
 

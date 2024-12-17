@@ -66,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const adjustedQuantity = (ingredient.kolicina * newServings) / originalServings;
             return `${adjustedQuantity.toFixed(2)} ${ingredient.enota || ""} ${ingredient.naziv}`;
         });
+        
+        const adjustedHranilneVrednosti = hranilneVrednosti.map((vrednost) => {
+            const adjustedQuantity = (vrednost.kolicina * newServings) / originalServings;
+            return `${vrednost.naziv}: ${adjustedQuantity.toFixed(2)} ${vrednost.merska_enota}`;
+        });
 
         // Now pop up window z novimi porcijami sestavin
         const popupContent = adjustedIngredients.join("<br>");
