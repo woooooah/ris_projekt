@@ -66,6 +66,19 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        const dailyIntake = {
+            // Kalorije: 2080,
+            // Beljakovine: 50,
+            // Maščobe: 70,
+            // Vlaknine: 30,
+            // "Ogljikovi hidrati": 310,
+            Calories: 2080,
+            Protein: 50,
+            Fats: 70,
+            Fiber: 30,
+            Carbohydrates: 310
+        }
+
         // Adjust ingredients
         const adjustedIngredients = ingredients.map((ingredient) => {
             const adjustedQuantity = (ingredient.kolicina * newServings) / originalServings;
@@ -75,7 +88,29 @@ document.addEventListener("DOMContentLoaded", function () {
         // Adjust nutritional values
         const adjustedNutrients = hranilneVrednosti.map((vrednost) => {
             const adjustedQuantity = (vrednost.kolicina * newServings) / originalServings;
-            return `${vrednost.naziv}: ${adjustedQuantity.toFixed(2)} ${vrednost.merska_enota}`;
+
+            let dailyPercentage = "";
+
+            switch (vrednost.naziv) {
+                case "Kalorije":
+                case "Beljakovine":
+                case "Maščobe":
+                case "Ogljikovi hidrati":
+                case "Vlaknine":
+                case "Calories":
+                case "Protein":
+                case "Fats":
+                case "Carbohydrates":
+                case "Fiber":
+                    const dailyValue = dailyIntake[vrednost.naziv];
+                    dailyPercentage = ` (${((adjustedQuantity / dailyValue) * 100).toFixed(2)}% of daily intake)`;
+                    break;
+                default:
+                    dailyPercentage = ""; // No percentage for unspecified nutrients
+            }
+
+
+            return `${vrednost.naziv}: ${adjustedQuantity.toFixed(2)} ${vrednost.merska_enota} ${dailyPercentage}`;
         });
 
         // Combine results for popup display
