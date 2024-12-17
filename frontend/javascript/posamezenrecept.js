@@ -62,14 +62,28 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        const dailyLimits = {
+            kalorije: 2000,
+            beljakovine: 50, // v gramih
+            mascobe: 70,     // v gramih
+            ogljikoviHidrati: 275 // v gramih
+        };
+
         const adjustedIngredients = ingredients.map((ingredient) => {
             const adjustedQuantity = (ingredient.kolicina * newServings) / originalServings;
             return `${adjustedQuantity.toFixed(2)} ${ingredient.enota || ""} ${ingredient.naziv}`;
         });
-        
-        const adjustedHranilneVrednosti = hranilneVrednosti.map((vrednost) => {
-            const adjustedQuantity = (vrednost.kolicina * newServings) / originalServings;
-            return `${vrednost.naziv}: ${adjustedQuantity.toFixed(2)} ${vrednost.merska_enota}`;
+
+        const totalNutrients = { kalorije: 0, beljakovine: 0, mascobe: 0, ogljikoviHidrati: 0 };
+
+        adjustedIngredients.forEach((ingredient) => {
+            const quantity = parseFloat(ingredient.adjustedQuantity);
+            if (ingredient.hranila) {
+                totalNutrients.kalorije += (ingredient.hranila.kalorije * quantity) || 0;
+                totalNutrients.beljakovine += (ingredient.hranila.beljakovine * quantity) || 0;
+                totalNutrients.mascobe += (ingredient.hranila.mascobe * quantity) || 0;
+                totalNutrients.ogljikoviHidrati += (ingredient.hranila.ogljikoviHidrati * quantity) || 0;
+            }
         });
 
         // Now pop up window z novimi porcijami sestavin
