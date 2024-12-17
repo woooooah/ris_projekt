@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let originalServings;
     let ingredients = [];
+    let hranilneVrednosti = []; // Store the original nutrient values
     
     fetch(`http://localhost:8080/api/recepti/${recipeId}`)
         .then((response) => {
@@ -24,19 +25,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 `Total: ${Math.floor(data.skupni_cas / 60)}h ${data.skupni_cas % 60}min`;
             document.getElementById("servings").textContent = `For: ${data.stevilo_porcij} portions`;
 
+            // Display original nutritional values
+            hranilneVrednosti = data.hranilneVrednosti; // Store for later use
             const hranilnaVrednostList = document.getElementById("hran-vred");
-            data.hranilneVrednosti.forEach((vrednost) => {
+            hranilneVrednosti.forEach((vrednost) => {
                 const li = document.createElement("li");
-                li.textContent = `${vrednost.naziv}: ${vrednost.kolicina} ${vrednost.merska_enota} `;
+                li.textContent = `${vrednost.naziv}: ${vrednost.kolicina} ${vrednost.merska_enota}`;
                 hranilnaVrednostList.appendChild(li);
-            })
+            });
 
+            // Display ingredients
             const ingredientsList = document.getElementById("ingredients-list");
             data.sestavine.forEach((ingredient) => {
                 const li = document.createElement("li");
                 li.textContent = `${ingredient.kolicina} ${ingredient.enota || ""} ${ingredient.naziv}`;
                 ingredientsList.appendChild(li);
-                ingredients.push(ingredient); // ingredient data
+                ingredients.push(ingredient); // Store for recalculation
             });
 
             const stepsList = document.getElementById("steps-list");
@@ -46,14 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 stepsList.appendChild(p);
             });
 
-            originalServings = data.stevilo_porcij; // originalni servingi
+            originalServings = data.stevilo_porcij; // Store original servings
         })
         .catch((error) => {
             console.error("Error loading recipe:", error);
             alert("Failed to load recipe details.");
         });
 
-    // Preračun in prikaz novih porcij
+    // Recalculate and display new servings and nutritional values
     document.getElementById("calculate-servings").addEventListener("click", () => {
         const newServings = parseFloat(document.getElementById("new-servings").value);
 
@@ -62,32 +66,27 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        const dailyLimits = {
-            kalorije: 2000,
-            beljakovine: 50, // v gramih
-            mascobe: 70,     // v gramih
-            ogljikoviHidrati: 275 // v gramih
-        };
-
+        // Adjust ingredients
         const adjustedIngredients = ingredients.map((ingredient) => {
             const adjustedQuantity = (ingredient.kolicina * newServings) / originalServings;
             return `${adjustedQuantity.toFixed(2)} ${ingredient.enota || ""} ${ingredient.naziv}`;
         });
 
-        const totalNutrients = { kalorije: 0, beljakovine: 0, mascobe: 0, ogljikoviHidrati: 0 };
-
-        adjustedIngredients.forEach((ingredient) => {
-            const quantity = parseFloat(ingredient.adjustedQuantity);
-            if (ingredient.hranila) {
-                totalNutrients.kalorije += (ingredient.hranila.kalorije * quantity) || 0;
-                totalNutrients.beljakovine += (ingredient.hranila.beljakovine * quantity) || 0;
-                totalNutrients.mascobe += (ingredient.hranila.mascobe * quantity) || 0;
-                totalNutrients.ogljikoviHidrati += (ingredient.hranila.ogljikoviHidrati * quantity) || 0;
-            }
+        // Adjust nutritional values
+        const adjustedNutrients = hranilneVrednosti.map((vrednost) => {
+            const adjustedQuantity = (vrednost.kolicina * newServings) / originalServings;
+            return `${vrednost.naziv}: ${adjustedQuantity.toFixed(2)} ${vrednost.merska_enota}`;
         });
 
-        // Now pop up window z novimi porcijami sestavin
-        const popupContent = adjustedIngredients.join("<br>");
+        // Combine results for popup display
+        const popupContent = `
+            <h4>Adjusted Ingredients</h4>
+            <p>${adjustedIngredients.join("<br>")}</p>
+            <h4>Adjusted Nutritional Values</h4>
+            <p>${adjustedNutrients.join("<br>")}</p>
+        `;
+
+        // Create popup window
         const popup = document.createElement("div");
         popup.style.position = "fixed";
         popup.style.top = "50%";
@@ -97,9 +96,10 @@ document.addEventListener("DOMContentLoaded", function () {
         popup.style.padding = "20px";
         popup.style.border = "1px solid black";
         popup.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
-        popup.innerHTML = `<h4>Adjusted Ingredients</h4><p>${popupContent}</p><button id="close-popup" class="btn btn-secondary">Close</button>`;
+        popup.innerHTML = `${popupContent}<button id="close-popup" class="btn btn-secondary">Close</button>`;
         document.body.appendChild(popup);
 
+        // Close popup logic
         document.getElementById("close-popup").addEventListener("click", () => {
             popup.remove();
         });
