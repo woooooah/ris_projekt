@@ -240,6 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('prep-time').value = recipe.cas_priprave;
                 document.getElementById('total-time').value = recipe.skupni_cas;
                 document.getElementById('servings').value = recipe.stevilo_porcij;
+                document.getElementById('hran-vred').value = recipe.hranilneVrednosti;
 
                 // Populate ingredients
                 clearIngredients();
@@ -264,6 +265,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('prep-time').value = '';
         document.getElementById('total-time').value = '';
         document.getElementById('servings').value = '';
+        document.getElementById('hran-vred').value = '';
         clearIngredients();
         clearSteps();
         document.getElementById('form-title').innerText = 'Create Recipe';
@@ -337,6 +339,24 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    
+    document.getElementById('add-nutrition').addEventListener('click', function() {
+        const nutritionSection = document.getElementById('hran-vred-section');
+        const newNutrition = document.createElement('div');
+        newNutrition.classList.add('form-group', 'hran-vred-item');
+        newNutrition.innerHTML = `
+            <input type="text" class="form-control hran-vred-name" placeholder="Nutrition name" required><br>
+            <input type="number" class="form-control hran-vred-quantity" placeholder="Quantity" required><br>
+            <input type="text" class="form-control hran-vred-unit" placeholder="Unit (e.g., grams, kcal)"><br>
+            <button type="button" class="btn btn-outline-danger remove-nutrition">Remove</button>
+        `;
+        nutritionSection.appendChild(newNutrition);
+
+        newNutrition.querySelector('.remove-nutrition').addEventListener('click', function() {
+            newNutrition.remove();
+        });
+    });
+
     document.getElementById('add-step').addEventListener('click', function() {
         const stepsSection = document.getElementById('steps-section');
         const newStep = document.createElement('div');
@@ -363,6 +383,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const prepTime = document.getElementById('prep-time').value;
         const totalTime = document.getElementById('total-time').value;
         const servings = document.getElementById('servings').value;
+        const hranVred = document.getElementById('hran-vred').value;
 
         const ingredients = [];
         document.querySelectorAll('.ingredient-item').forEach(item => {
@@ -394,7 +415,8 @@ document.addEventListener("DOMContentLoaded", function() {
             skupni_cas: parseInt(totalTime),
             sestavine: ingredients,
             koraki: steps,
-            stevilo_porcij: parseInt(servings)
+            stevilo_porcij: parseInt(servings),
+            hranilneVrednosti: parseInt(hranVred)
         };
 
         const url = recipeId
