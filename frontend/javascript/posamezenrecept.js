@@ -67,11 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const dailyIntake = {
-            // Kalorije: 2080,
-            // Beljakovine: 50,
-            // Maščobe: 70,
-            // Vlaknine: 30,
-            // "Ogljikovi hidrati": 310,
+            Kalorije: 2080,
+            Beljakovine: 50,
+            Maščobe: 70,
+            Vlaknine: 30,
+            "Ogljikovi hidrati": 310,
             Calories: 2080,
             Protein: 50,
             Fats: 70,
